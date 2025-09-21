@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; top: 0; left: 0; bottom: 0; right: 0; position: absolute; align-self: flex-end; justify-content: flex-end; align-items: auto;">
+        <ui:Button text="&#10;" style="right: 143px; bottom: 174px; background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/GreenButton.aseprite?fileID=8750223699812385297&amp;guid=55e502bdc33af4e73b1fdc884b764e60&amp;type=3#GreenButton_1&quot;); width: 250px; height: 75px; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;">
+            <ui:Label text="Play" style="bottom: 3px; -unity-font-style: bold; font-size: 30px; -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); color: rgb(255, 255, 255);" />
+        </ui:Button>
+    </ui:VisualElement>
+</ui:UXML>
