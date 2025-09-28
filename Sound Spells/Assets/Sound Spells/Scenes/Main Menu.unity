@@ -497,6 +497,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLogo
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: bbd41354c792d4e8f9ce3df68a70351c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: bbd41354c792d4e8f9ce3df68a70351c, type: 3}
       propertyPath: m_LocalScale.x
       value: 6.1847
@@ -561,5 +565,5 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1344818793}
-  - {fileID: 1353153412}
   - {fileID: 505785636}
+  - {fileID: 1353153412}
