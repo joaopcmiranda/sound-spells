@@ -78,8 +78,7 @@ public class BubbleManager : MonoBehaviour
         if (availablePhonics.Count == 0) return;
 
         PhonicData randomPhonic = availablePhonics[Random.Range(0, availablePhonics.Count)];
-
-        // --- CHANGED LOGIC: Find a valid position *before* creating the bubble ---
+        
         Vector2? spawnPosition = FindValidSpawnPosition();
 
         if (spawnPosition.HasValue)
@@ -104,12 +103,8 @@ public class BubbleManager : MonoBehaviour
             Debug.LogWarning("Could not find a clear spot to spawn a bubble. Screen may be too full.");
         }
     }
+    
 
-    // --- NEW METHOD ---
-    /// <summary>
-    /// Tries to find a random position that isn't too close to any existing bubbles.
-    /// </summary>
-    /// <returns>A valid Vector2 position, or null if no position could be found.</returns>
     private Vector2? FindValidSpawnPosition()
     {
         float screenWidth = rootVisualElement.resolvedStyle.width;
@@ -135,7 +130,7 @@ public class BubbleManager : MonoBehaviour
                 if (Vector2.Distance(candidatePosition, existingPosition) < minSpawnDistance)
                 {
                     isPositionValid = false;
-                    break; // No need to check other bubbles, this spot is bad
+                    break;
                 }
             }
 
