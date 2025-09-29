@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #606060;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #1a1a1a;
+      }
+    </style>
+  </defs>
+  <g id="Black">
+    <g id="Paintbrush_2_Flat_Black" data-name="Paintbrush 2 Flat Black">
+      <rect class="cls-1" width="64" height="64"/>
+      <path class="cls-2" d="M58.5,4.51c-4.44,.54-20.54,3.34-20.46,15.36l-6.11,6.11C5.6,52.3,3.24,57.39,4.93,59.08c1.69,1.69,6.78-.67,33.11-27l6.11-6.11c12.02,.07,14.81-16.03,15.36-20.46,.07-.58-.42-1.07-1-1Z"/>
+    </g>
+  </g>
+</svg>

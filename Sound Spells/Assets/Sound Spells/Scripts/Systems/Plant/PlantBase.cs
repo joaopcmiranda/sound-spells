@@ -10,6 +10,14 @@ namespace Sound_Spells.Systems.Plant
         [SerializeField]
         private PlantData _plantData;
 
+        public ElementIndicator elementIndicator;
+
+        [Header("Global Evaporation Rates")]
+        [SerializeField]
+        private float _sunnyEvaporationRate = 0.02f; // Water loss rate per second in sunny weather
+        [SerializeField]
+        private float _cloudyEvaporationRate = 0.01f; // Water loss rate per second in cloudy weather
+
         [SerializeField]
         private PlantState _currentState = PlantState.Healthy;
         [SerializeField]
@@ -76,12 +84,7 @@ namespace Sound_Spells.Systems.Plant
             UpdateState();
             UpdateGrowth();
             UpdateVisuals();
-            
-            // Debug info
-            _tooLittleWater = _waterLevel < _plantData.waterRequirement * 0.5f;
-            _tooMuchWater = _waterLevel > Mathf.Min(_plantData.waterRequirement * 1.5f, 1f);
-            _tooLittleSunlight = _sunlightLevel < _plantData.sunlightRequirement * 0.5f;
-            _tooMuchSunlight = _sunlightLevel > Mathf.Min(_plantData.sunlightRequirement * 1.5f, 1f);
+            UpdateIndicator();
         }
 
         private void UpdateStats()
@@ -91,7 +94,7 @@ namespace Sound_Spells.Systems.Plant
             {
                 case WeatherType.Sunny:
                     _sunlightLevel += Time.deltaTime * _plantData.sunlightToleranceRate;
-                    _waterLevel -= Time.deltaTime * 0.05f; // Evaporation
+                    _waterLevel -= Time.deltaTime * _sunnyEvaporationRate; // Evaporation
                     break;
                 case WeatherType.Rainy:
                     _waterLevel += Time.deltaTime * _plantData.waterAbsorptionRate * 2f; // Rain absorption
@@ -99,7 +102,7 @@ namespace Sound_Spells.Systems.Plant
                     break;
                 case WeatherType.Cloudy:
                     _sunlightLevel += Time.deltaTime * _plantData.sunlightToleranceRate * 0.5f; // Some sunlight
-                    _waterLevel -= Time.deltaTime * 0.02f; // Slight evaporation
+                    _waterLevel -= Time.deltaTime * _cloudyEvaporationRate; // Slight evaporation
                     break;
                 case WeatherType.Stormy:
                     _waterLevel += Time.deltaTime * _plantData.waterAbsorptionRate * 3f; // Heavy rain
@@ -114,10 +117,10 @@ namespace Sound_Spells.Systems.Plant
 
         private void UpdateHealth()
         {
-            float healthDelta = 0f;
+            var healthDelta = 0f;
 
             // Water impact - check distance from optimal level
-            float waterDistance = Mathf.Abs(_waterLevel - _plantData.waterRequirement);
+            var waterDistance = Mathf.Abs(_waterLevel - _plantData.waterRequirement);
             if (_waterLevel < _plantData.waterRequirement * 0.5f)
             {
                 healthDelta -= Time.deltaTime * _plantData.draughtTolerance; // Too little water
@@ -132,7 +135,7 @@ namespace Sound_Spells.Systems.Plant
             }
 
             // Sunlight impact - check distance from optimal level
-            float sunlightDistance = Mathf.Abs(_sunlightLevel - _plantData.sunlightRequirement);
+            var sunlightDistance = Mathf.Abs(_sunlightLevel - _plantData.sunlightRequirement);
             if (_sunlightLevel < _plantData.sunlightRequirement * 0.5f)
             {
                 healthDelta -= Time.deltaTime * _plantData.lowSunlightTolerance; // Too little sunlight
@@ -205,6 +208,93 @@ namespace Sound_Spells.Systems.Plant
             if (plantStateSprite.sprite)
             {
                 _spriteRenderer.sprite = plantStateSprite.sprite;
+            }
+        }
+        
+        private void UpdateIndicator()
+        {
+            if (!elementIndicator) return;
+
+            // If plant is dead, show dead indicator
+            if (_currentState == PlantState.Dead)
+            {
+                elementIndicator.Content = ElementIndicator.ContentType.Dead;
+                elementIndicator.State = ElementIndicator.IndicatorState.Neutral;
+                return;
+            }
+
+            var waterDistance = Mathf.Abs(_waterLevel - _plantData.waterRequirement);
+            var sunlightDistance = Mathf.Abs(_sunlightLevel - _plantData.sunlightRequirement);
+
+            var showWater = waterDistance >= sunlightDistance;
+
+            if (showWater)
+            {
+                // Show water indicator based on current water level
+                if (_waterLevel < _plantData.waterRequirement * 0.3f)
+                {
+                    elementIndicator.Content = ElementIndicator.ContentType.Water;
+                    elementIndicator.State = ElementIndicator.IndicatorState.HeavyIncrease; // Need water badly
+                }
+                else if (_waterLevel < _plantData.waterRequirement * 0.6f)
+                {
+                    elementIndicator.Content = ElementIndicator.ContentType.Water;
+                    elementIndicator.State = ElementIndicator.IndicatorState.Increase; // Need some water
+                }
+                else if (_waterLevel > Mathf.Min(_plantData.waterRequirement * 1.8f, 1f))
+                {
+                    elementIndicator.Content = ElementIndicator.ContentType.Water;
+                    elementIndicator.State = ElementIndicator.IndicatorState.HeavyDecrease; // Need less water
+                }
+                else if (_waterLevel > Mathf.Min(_plantData.waterRequirement * 1.5f, 1f))
+                {
+                    elementIndicator.Content = ElementIndicator.ContentType.Water;
+                    elementIndicator.State = ElementIndicator.IndicatorState.Decrease; // Need slightly less water
+                }
+                else
+                {
+                    // Water is optimal, but check if we should show anything
+                    if (sunlightDistance > 0.1f) // Only show sunlight if it's significantly off
+                    {
+                        showWater = false; // Switch to showing sunlight
+                    }
+                    else
+                    {
+                        // Both are optimal
+                        elementIndicator.State = ElementIndicator.IndicatorState.None;
+                        return;
+                    }
+                }
+            }
+
+            if (!showWater)
+            {
+                // Show sunlight indicator based on current sunlight level
+                if (_sunlightLevel < _plantData.sunlightRequirement * 0.5f)
+                {
+                    elementIndicator.Content = ElementIndicator.ContentType.Sun;
+                    elementIndicator.State = ElementIndicator.IndicatorState.HeavyIncrease; // Need sun badly
+                }
+                else if (_sunlightLevel < _plantData.sunlightRequirement * 0.6f)
+                {
+                    elementIndicator.Content = ElementIndicator.ContentType.Sun;
+                    elementIndicator.State = ElementIndicator.IndicatorState.Increase; // Need some sun
+                }
+                else if (_sunlightLevel > Mathf.Min(_plantData.sunlightRequirement * 1.8f, 1f))
+                {
+                    elementIndicator.Content = ElementIndicator.ContentType.Sun;
+                    elementIndicator.State = ElementIndicator.IndicatorState.HeavyDecrease; // Need less sun
+                }
+                else if (_sunlightLevel > Mathf.Min(_plantData.sunlightRequirement * 1.5f, 1f))
+                {
+                    elementIndicator.Content = ElementIndicator.ContentType.Sun;
+                    elementIndicator.State = ElementIndicator.IndicatorState.Decrease; // Need slightly less sun
+                }
+                else
+                {
+                    // Both water and sunlight are optimal
+                    elementIndicator.State = ElementIndicator.IndicatorState.None;
+                }
             }
         }
     }

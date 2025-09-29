@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #606060;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #1a1a1a;
+      }
+    </style>
+  </defs>
+  <g id="Black">
+    <g id="Halo_Flat_Black" data-name="Halo Flat Black">
+      <rect class="cls-1" width="64" height="64"/>
+      <path class="cls-2" d="M32,17.36c-15.19,0-27.5,4.65-27.5,14.64s12.31,14.64,27.5,14.64,27.5-4.65,27.5-14.64-12.31-14.64-27.5-14.64Zm0,18.57c-8.44,0-15.43-1.7-16.61-5.32,1.18-3.62,8.16-5.32,16.61-5.32s15.43,1.7,16.61,5.32c-1.18,3.62-8.16,5.32-16.61,5.32Z"/>
+    </g>
+  </g>
+</svg>

@@ -33,7 +33,7 @@ namespace Sound_Spells.Models.Plant
         public float sunlightRequirement = 0.7f; // Optimal sunlight level (0-1 range)
 
         // Rates
-        
+
         public float growthRate = 1f; // Rate of growth per second
         public float waterAbsorptionRate = 0.1f; // How fast the plant absorbs water (0-1 range per second)
         public float sunlightToleranceRate = 0.1f; // How fast the plant sunlight level changes (0-1 range per second)

@@ -19,7 +19,7 @@ MonoBehaviour:
   waterRequirement: 0.6
   sunlightRequirement: 0.7
   growthRate: 1
-  waterAbsorptionRate: 0.1
+  waterAbsorptionRate: 0.05
   sunlightToleranceRate: 0.1
   bloomingTime: 20
   draughtTolerance: 2
