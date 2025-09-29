@@ -1,0 +1,5 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="BubbleBackground" style="position: absolute; width: 70px; height: 70px; background-color: rgba(150, 150, 150, 0); align-items: center; justify-content: center; border-radius: 50%; -unity-background-scale-mode: scale-to-fit;">
+        <ui:Label text="A" name="Phonic" style="font-size: 40px; -unity-text-align: middle-center; color: white; text-shadow: 2px 2px 4px black; -unity-font-definition: resource(&apos;FlatSkin/Font/Roboto-Black&apos;); -unity-font-style: normal; -unity-text-outline-width: 3px; -unity-text-outline-color: rgb(0, 0, 0);" />
+    </ui:VisualElement>
+</ui:UXML>
