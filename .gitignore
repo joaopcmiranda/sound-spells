@@ -1,2 +1,19 @@
 
 Sound Spells/UserSettings/Layouts/
+
+.claude
+CLAUDE.md
+
+**/.idea/**/workspace.xml
+**/.idea/**/tasks.xml
+**/.idea/**/usage.statistics.xml
+**/.idea/**/dictionaries
+**/.idea/**/shelf
+**/.idea/**/httpRequests
+**/.idea/**/dataSources*
+**/.idea/**/gradle.xml
+**/.idea/**/libraries
+**/.idea/**/copilot*
+*.iml
+.idea/modules.xml
+Sound Spells/UserSettings/
