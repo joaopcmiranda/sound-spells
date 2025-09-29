@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <g id="White">
+    <g id="Whiteboard_Flat_White" data-name="Whiteboard Flat White">
+      <rect class="cls-2" width="64" height="64"/>
+      <g>
+        <path class="cls-1" d="M52.5,15H11.5c0,2.21-1.79,4-4,4v26c2.21,0,4,1.79,4,4H52.5c0-2.21,1.79-4,4-4V19c-2.21,0-4-1.79-4-4Z"/>
+        <path class="cls-1" d="M57.5,8H6.5c-3.31,0-6,2.69-6,6V50c0,3.31,2.69,6,6,6H57.5c3.31,0,6-2.69,6-6V14c0-3.31-2.69-6-6-6Zm2,11v31c0,1.1-.9,2-2,2H6.5c-1.1,0-2-.9-2-2V14c0-.41,.13-.8,.34-1.12,.14-.21,.33-.4,.54-.54,.32-.22,.7-.34,1.12-.34H57.5c.41,0,.8,.13,1.12,.34,.21,.14,.4,.33,.54,.54,.22,.32,.34,.7,.34,1.12v5Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

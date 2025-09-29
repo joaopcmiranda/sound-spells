@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <g id="White">
+    <g id="Shark_Tooth_Flat_White" data-name="Shark Tooth Flat White">
+      <rect class="cls-2" width="64" height="64"/>
+      <path class="cls-1" d="M16.12,43.73s-3.06-21.41-6.96-30.32c0,0,3.34-4.44,8.08-8.91,0,0,15.52,6.69,29.91,0,0,0,6.03,4.45,7.7,8.35,0,0-1.11,4.46-5.57,13.93,0,0-9.47,10.59-10.66,32.72,0,0-14.97-6.53-22.49-15.77Z"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: 34bdf736832e00d4eae453d592b0d244
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2713460387820364530
+    second: Plants_Withered_0
+  - first:
+      213: 8356902929883295175
+    second: Plants_Withered_1
+  - first:
+      213: -3387492715966028523
+    second: Plants_Withered_2
+  - first:
+      213: -2275476879537117639
+    second: Plants_Withered_3
+  - first:
+      213: 3595020840703948180
+    second: Plants_Withered_4
+  - first:
+      213: 1938528153620628140
+    second: Plants_Withered_5
+  - first:
+      213: -459255050419155269
+    second: Plants_Withered_6
+  - first:
+      213: 889656730007449870
+    second: Plants_Withered_7
+  - first:
+      213: -5373887069265945473
+    second: Plants_Withered_8
+  - first:
+      213: -4805740698814978919
+    second: Plants_Withered_9
+  - first:
+      213: 3620215546985283374
+    second: Plants_Withered_10
+  - first:
+      213: 8071550673396022485
+    second: Plants_Withered_11
+  - first:
+      213: -5483081573370458124
+    second: Plants_Withered_12
+  - first:
+      213: 8372535935178088876
+    second: Plants_Withered_13
+  - first:
+      213: -4373919659215117426
+    second: Plants_Withered_14
+  - first:
+      213: -1026690680595852636
+    second: Plants_Withered_15
+  - first:
+      213: -6038194514466687839
+    second: Plants_Withered_16
+  - first:
+      213: 4710348996829554748
+    second: Plants_Withered_17
+  - first:
+      213: -8552472977356336757
+    second: Plants_Withered_18
+  - first:
+      213: 1805758991992128395
+    second: Plants_Withered_19
+  - first:
+      213: 3267615770896511322
+    second: Plants_Withered_20
+  - first:
+      213: -1152555753603613312
+    second: Plants_Withered_21
+  - first:
+      213: -2787713601314158091
+    second: Plants_Withered_22
+  - first:
+      213: -1364222628331629671
+    second: Plants_Withered_23
+  - first:
+      213: -3140918471252498961
+    second: Plants_Withered_24
+  - first:
+      213: 4011888607846162982
+    second: Plants_Withered_25
+  - first:
+      213: -7158690368125281427
+    second: Plants_Withered_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grape_seedling
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 307
+        width: 13
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d9fdf572ad75ad0800000000000000
+      internalID: -2713460387820364530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grape_young
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 307
+        width: 13
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cd6d1e10fea9f370800000000000000
+      internalID: 8356902929883295175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grape_mature
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 307
+        width: 24
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5152f9192553df0d0800000000000000
+      internalID: -3387492715966028523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cucumber_seedling
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 259
+        width: 13
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 936639485d1eb60e0800000000000000
+      internalID: -2275476879537117639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cucumber_young
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 259
+        width: 13
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 495f84a486414e130800000000000000
+      internalID: 3595020840703948180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cucumber_mature
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 259
+        width: 14
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca2c6afb51907ea10800000000000000
+      internalID: 1938528153620628140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chilli_seedling
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 227
+        width: 12
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe467207f560a9f0800000000000000
+      internalID: -459255050419155269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chilli_young
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 227
+        width: 19
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0131241512b85c00800000000000000
+      internalID: 889656730007449870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chilli_mature
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 227
+        width: 22
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c965dbe2e1c65b0800000000000000
+      internalID: -5373887069265945473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cauliflower_seedling
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 202
+        width: 13
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 994ee7cdb449e4db0800000000000000
+      internalID: -4805740698814978919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cauliflower_young
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 199
+        width: 19
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f7768fbd69d3230800000000000000
+      internalID: 3620215546985283374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cauliflower_mature
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 198
+        width: 22
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dcb5529298e30070800000000000000
+      internalID: 8071550673396022485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jalapeno_seedling
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 147
+        width: 13
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff83c01c5e28e3b0800000000000000
+      internalID: -5483081573370458124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jalapeno_young
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 147
+        width: 20
+        height: 26
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca1ab7dc219313470800000000000000
+      internalID: 8372535935178088876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jalapeno_mature
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 147
+        width: 25
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e83a2647e37bc43c0800000000000000
+      internalID: -4373919659215117426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabbage_seedling
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 122
+        width: 9
+        height: 9
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a251e0044670c1f0800000000000000
+      internalID: -1026690680595852636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabbage_young
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 122
+        width: 15
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a43080b416043ca0800000000000000
+      internalID: -6038194514466687839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabbage_mature
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 120
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38a424c4758e5140800000000000000
+      internalID: 4710348996829554748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aubergine_seedling
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 93
+        width: 17
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b815c89d3238f4980800000000000000
+      internalID: -8552472977356336757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aubergine_young
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 88
+        width: 23
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8388a36c385f0910800000000000000
+      internalID: 1805758991992128395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aubergine_mature
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 85
+        width: 29
+        height: 28
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5130c62b37e85d20800000000000000
+      internalID: 3267615770896511322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plants_Withered_21
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 46
+        width: 13
+        height: 11
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08dbf9a06ac4100f0800000000000000
+      internalID: -1152555753603613312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plants_Withered_22
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 42
+        width: 22
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f90522ef3d0059d0800000000000000
+      internalID: -2787713601314158091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plants_Withered_23
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 38
+        width: 29
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9935ebb5fbe411de0800000000000000
+      internalID: -1364222628331629671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pineapple_seedling
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 3
+        width: 11
+        height: 13
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe5288caa473964d0800000000000000
+      internalID: -3140918471252498961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pineapple_young
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 4
+        width: 22
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6226b15de671da730800000000000000
+      internalID: 4011888607846162982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pineapple_mature
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 2
+        width: 32
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6bd1eed90937ac90800000000000000
+      internalID: -7158690368125281427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c1f19c69bbad88c4e956859b69533cd5
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.15000000596046449},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Plants_Withered_0: -2713460387820364530
+      Plants_Withered_1: 8356902929883295175
+      Plants_Withered_10: 3620215546985283374
+      Plants_Withered_11: 8071550673396022485
+      Plants_Withered_12: -5483081573370458124
+      Plants_Withered_13: 8372535935178088876
+      Plants_Withered_14: -4373919659215117426
+      Plants_Withered_15: -1026690680595852636
+      Plants_Withered_16: -6038194514466687839
+      Plants_Withered_17: 4710348996829554748
+      Plants_Withered_18: -8552472977356336757
+      Plants_Withered_19: 1805758991992128395
+      Plants_Withered_2: -3387492715966028523
+      Plants_Withered_20: 3267615770896511322
+      Plants_Withered_21: -1152555753603613312
+      Plants_Withered_22: -2787713601314158091
+      Plants_Withered_23: -1364222628331629671
+      Plants_Withered_24: -3140918471252498961
+      Plants_Withered_25: 4011888607846162982
+      Plants_Withered_26: -7158690368125281427
+      Plants_Withered_3: -2275476879537117639
+      Plants_Withered_4: 3595020840703948180
+      Plants_Withered_5: 1938528153620628140
+      Plants_Withered_6: -459255050419155269
+      Plants_Withered_7: 889656730007449870
+      Plants_Withered_8: -5373887069265945473
+      Plants_Withered_9: -4805740698814978919
+      aubergine_mature: 3267615770896511322
+      aubergine_seedling: -8552472977356336757
+      aubergine_young: 1805758991992128395
+      cabbage_mature: 4710348996829554748
+      cabbage_seedling: -1026690680595852636
+      cabbage_young: -6038194514466687839
+      cauliflower_mature: 8071550673396022485
+      cauliflower_seedling: -4805740698814978919
+      cauliflower_young: 3620215546985283374
+      chilli_mature: -5373887069265945473
+      chilli_seedling: -459255050419155269
+      chilli_young: 889656730007449870
+      cucumber_mature: 1938528153620628140
+      cucumber_seedling: -2275476879537117639
+      cucumber_young: 3595020840703948180
+      grape_mature: -3387492715966028523
+      grape_seedling: -2713460387820364530
+      grape_young: 8356902929883295175
+      jalapeno_mature: -4373919659215117426
+      jalapeno_seedling: -5483081573370458124
+      jalapeno_young: 8372535935178088876
+      pineapple_mature: -7158690368125281427
+      pineapple_seedling: -3140918471252498961
+      pineapple_young: 4011888607846162982
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
