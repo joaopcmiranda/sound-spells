@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a15a53caff48ef9806fd281f5b6ef6, type: 3}
+  m_Name: Grapes
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.Models.Plant.PlantData
+  plantName: Grape
+  type: 2
+  maxHealth: 100
+  growthDuration: 180
+  waterRequirement: 0.6
+  sunlightRequirement: 0.7
+  growthRate: 1
+  waterAbsorptionRate: 0.1
+  sunlightToleranceRate: 0.1
+  bloomingTime: 20
+  draughtTolerance: 2
+  overwaterTolerance: 1
+  lowSunlightTolerance: 0.5
+  highSunlightTolerance: 0.8
+  sprites:
+  - age: 0
+    state: 0
+    sprite: {fileID: 317623955, guid: 0d0900572c1f2f340bb6550411552968, type: 3}
+  - age: 0
+    state: 1
+    sprite: {fileID: 317623955, guid: 0d0900572c1f2f340bb6550411552968, type: 3}
+  - age: 0
+    state: 3
+    sprite: {fileID: 317623955, guid: 0d0900572c1f2f340bb6550411552968, type: 3}
+  - age: 1
+    state: 0
+    sprite: {fileID: 1352955200029874055, guid: 5a3f05b71ffec52468b2c4f78ac011f9, type: 3}
+  - age: 1
+    state: 1
+    sprite: {fileID: -2713460387820364530, guid: 34bdf736832e00d4eae453d592b0d244, type: 3}
+  - age: 1
+    state: 3
+    sprite: {fileID: 2855591981117389733, guid: a3fdc9b7246baa949841cf7f9457332a, type: 3}
+  - age: 2
+    state: 1
+    sprite: {fileID: 8356902929883295175, guid: 34bdf736832e00d4eae453d592b0d244, type: 3}
+  - age: 2
+    state: 3
+    sprite: {fileID: 4563114593483028025, guid: a3fdc9b7246baa949841cf7f9457332a, type: 3}
+  - age: 3
+    state: 0
+    sprite: {fileID: -7391759607893831176, guid: 5a3f05b71ffec52468b2c4f78ac011f9, type: 3}
+  - age: 3
+    state: 1
+    sprite: {fileID: -3387492715966028523, guid: 34bdf736832e00d4eae453d592b0d244, type: 3}
+  - age: 3
+    state: 2
+    sprite: {fileID: -1268064389544249124, guid: 5a3f05b71ffec52468b2c4f78ac011f9, type: 3}
+  - age: 3
+    state: 3
+    sprite: {fileID: -2429684677557589086, guid: a3fdc9b7246baa949841cf7f9457332a, type: 3}
