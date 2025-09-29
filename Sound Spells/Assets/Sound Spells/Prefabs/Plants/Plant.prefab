@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b439785075e41eaab338ac8861af6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.Systems.Plant.PlantBase
-  _plantData: {fileID: 0}
+  _plantData: {fileID: 11400000, guid: 291f6b99d14edc842b41359bbe0acfd6, type: 2}
   elementIndicator: {fileID: 2802188218207892670}
+  _sunnyEvaporationRate: 0.02
+  _cloudyEvaporationRate: 0.01
   _currentState: 0
   _currentAge: 0
   _health: 0
@@ -106,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 8245696554083763515, guid: 5a3f05b71ffec52468b2c4f78ac011f9, type: 3}
+  m_Sprite: {fileID: 317623955, guid: 0d0900572c1f2f340bb6550411552968, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

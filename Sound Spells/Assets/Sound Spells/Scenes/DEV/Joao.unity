@@ -131,18 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plant
       objectReference: {fileID: 0}
-    - target: {fileID: 8281036538688890278, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 317623955, guid: 0d0900572c1f2f340bb6550411552968, type: 3}
-    - target: {fileID: 8484489198188523249, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
-      propertyPath: _plantData
-      value: 
-      objectReference: {fileID: 11400000, guid: 291f6b99d14edc842b41359bbe0acfd6, type: 2}
-    - target: {fileID: 8484489198188523249, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
-      propertyPath: _currentAge
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8512454307176440603, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.44
