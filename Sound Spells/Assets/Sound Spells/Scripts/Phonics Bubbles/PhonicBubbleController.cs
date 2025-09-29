@@ -52,7 +52,7 @@ public class PhonicBubbleController
         
         // Initialize movement
         moveDirection = UnityEngine.Random.insideUnitCircle.normalized;
-        moveSpeed = UnityEngine.Random.Range(20f, 40f);
+        moveSpeed = UnityEngine.Random.Range(5f, 10f);
     }
     
     public void UpdatePosition(Rect bounds)
