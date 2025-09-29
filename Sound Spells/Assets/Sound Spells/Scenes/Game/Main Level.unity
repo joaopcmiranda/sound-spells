@@ -119,6 +119,98 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &225869270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225869273}
+  - component: {fileID: 225869272}
+  - component: {fileID: 225869271}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &225869271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225869270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f60e2b4b2925c249929676b9e96aab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BubbleManager
+  uiDocument: {fileID: 1423989710}
+  bubbleTemplate: {fileID: 9197481963319205126, guid: dfbe312884c41d74da45f7547ef3a49a, type: 3}
+  allPhonics:
+  - {fileID: 11400000, guid: eb588a4f006ca24418253c09405a9d6a, type: 2}
+  - {fileID: 11400000, guid: 539a70972fe9691419b618b214c90f94, type: 2}
+  - {fileID: 11400000, guid: efa0550dd6cbc434d890a437da2fc6a4, type: 2}
+  - {fileID: 11400000, guid: 61d646ec5c54cf44abd3a5865561ac6d, type: 2}
+  - {fileID: 11400000, guid: 43c1a7fc1d1c5d645a8a2191e507d16e, type: 2}
+  - {fileID: 11400000, guid: 5b1e6c630eaa0f943a1a3711e6897f05, type: 2}
+  - {fileID: 11400000, guid: a8b7bd288b765764cb48f29605dfcf37, type: 2}
+  - {fileID: 11400000, guid: c5480111f798b224a9191850bb65ebe0, type: 2}
+  - {fileID: 11400000, guid: baf6042cd63f8fb48b51b4f3ddc207f3, type: 2}
+  - {fileID: 11400000, guid: 3649ef87cca50294a9bbbf778c003be7, type: 2}
+  - {fileID: 11400000, guid: f263b7a2e5a29cb42a091b20584bb20b, type: 2}
+  - {fileID: 11400000, guid: 12ff71890176bcf4d8347fc6af8c5595, type: 2}
+  - {fileID: 11400000, guid: d3c4f51828f92034ab6b2601a0484aba, type: 2}
+  - {fileID: 11400000, guid: 589ed7123ad672b4c90c4ba25a55a9cb, type: 2}
+  - {fileID: 11400000, guid: 89bef81d269c19542968681789aaabae, type: 2}
+  - {fileID: 11400000, guid: 230ce90d42c18e6459246e34f0efe235, type: 2}
+  - {fileID: 11400000, guid: 3425cc614653428449290d748f1da116, type: 2}
+  - {fileID: 11400000, guid: b943eabfa8441804ab52fc9b22ba0d6f, type: 2}
+  - {fileID: 11400000, guid: 596fb56979ecc3740a0f874e9fd377f4, type: 2}
+  - {fileID: 11400000, guid: 32667544e08abc749a22484aea906218, type: 2}
+  - {fileID: 11400000, guid: 7d55411667fb6c947926c7ea373aacba, type: 2}
+  - {fileID: 11400000, guid: ef5ed43d3516ac7439a78fa813baae55, type: 2}
+  - {fileID: 11400000, guid: 00e7d41e274e69e46a8d528ea074c2b8, type: 2}
+  - {fileID: 11400000, guid: b6750d0f47cbe56479b1e3cce8790894, type: 2}
+  - {fileID: 11400000, guid: 675948d8e61e68a4ca4089552647e234, type: 2}
+  - {fileID: 11400000, guid: bdedcbaf22dbbe243a2a44deda07741a, type: 2}
+  bubbleLifetime: 10
+  spawnInterval: 3
+  maxBubbles: 5
+  bubbleWidth: 200
+  minSpawnDistance: 220
+  spawnPlacementAttempts: 20
+--- !u!114 &225869272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225869270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a024bb06a5048c045b24e81c1cafcf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhonicsRecogniser
+--- !u!4 &225869273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225869270}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &419224725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -430,6 +522,61 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1423989709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1423989711}
+  - component: {fileID: 1423989710}
+  m_Layer: 0
+  m_Name: Phonics Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1423989710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423989709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 9834be729198f446fb122ab15942a645, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 8fd6813eb66665d45a4358e6d48de6e2, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &1423989711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423989709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -437,3 +584,5 @@ SceneRoots:
   - {fileID: 1089102382}
   - {fileID: 419224725}
   - {fileID: 681256648}
+  - {fileID: 1423989711}
+  - {fileID: 225869273}
