@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1316473922263064489}
   - component: {fileID: 6023792998248816797}
   - component: {fileID: 4581404705359091778}
+  - component: {fileID: 38702034639461857}
+  - component: {fileID: 4046579532353004366}
   m_Layer: 0
   m_Name: HUDManager
   m_TagString: Untagged
@@ -70,3 +72,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.HudManager
   hudUIDocument: {fileID: 6023792998248816797}
   weatherSystem: {fileID: 0}
+  phonicsRecogniser: {fileID: 38702034639461857}
+  phonicRandomiser: {fileID: 4046579532353004366}
+--- !u!114 &38702034639461857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562673726837311503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a024bb06a5048c045b24e81c1cafcf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhonicsRecogniser
+--- !u!114 &4046579532353004366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562673726837311503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30aad94c8c6771a4b97b415126d1bab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.Systems.Phonics_Generation.PhonicRandomiser
+  words:
+  - a
+  - an
+  - at
+  - it
+  - in
+  - is
+  - as
+  - sat
+  - sit
+  - sap
+  - sip
+  - sin
+  - tin
+  - tip
+  - tan
+  - tap
+  - pat
+  - pan
+  - pin
+  - pip
+  - nap
+  - nip
+  - nan
+  - ant
+  - ants
+  - and
+  - mat
+  - map
+  - man
+  - mad
+  - mud
+  - mit
+  - dim
+  - dip
+  - dog
+  - dot
+  - got
+  - god
+  - gap
+  - gas
+  - cot
+  - cod
+  - can
+  - cap
+  - cat
+  - kid
+  - kit
+  - kick
+  - din
+  - dig
