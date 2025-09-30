@@ -4831,6 +4831,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0bbf79d44844436b632dbfd8371bd8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.Systems.Weather.WeatherSystem
+--- !u!1 &2140946569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 562673726837311503, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+  m_PrefabInstance: {fileID: 4937431130409614873}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140946573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140946569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a024bb06a5048c045b24e81c1cafcf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhonicsRecogniser
+--- !u!114 &2140946574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140946569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30aad94c8c6771a4b97b415126d1bab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.Systems.Phonics_Generation.PhonicRandomiser
+  words:
+  - a
+  - an
+  - at
+  - it
+  - in
+  - is
+  - as
+  - sat
+  - sit
+  - sap
+  - sip
+  - sin
+  - tin
+  - tip
+  - tan
+  - tap
+  - pat
+  - pan
+  - pin
+  - pip
+  - nap
+  - nip
+  - nan
+  - ant
+  - ants
+  - and
+  - mat
+  - map
+  - man
+  - mad
+  - mud
+  - mit
+  - dim
+  - dip
+  - dog
+  - dot
+  - got
+  - god
+  - gap
+  - gas
+  - cot
+  - cod
+  - can
+  - cap
+  - cat
+  - kid
+  - kit
+  - kick
+  - din
+  - dig
 --- !u!1001 &4937431130409614873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4887,10 +4967,24 @@ PrefabInstance:
       propertyPath: weatherSystem
       value: 
       objectReference: {fileID: 1680048368}
+    - target: {fileID: 4581404705359091778, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+      propertyPath: phonicRandomiser
+      value: 
+      objectReference: {fileID: 2140946574}
+    - target: {fileID: 4581404705359091778, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+      propertyPath: phonicsRecogniser
+      value: 
+      objectReference: {fileID: 2140946573}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 562673726837311503, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2140946573}
+    - targetCorrespondingSourceObject: {fileID: 562673726837311503, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2140946574}
   m_SourcePrefab: {fileID: 100100000, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

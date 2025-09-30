@@ -1,3 +1,4 @@
+using Sound_Spells.Systems.Phonics_Generation;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Sound_Spells.Systems.Weather;
@@ -8,6 +9,8 @@ namespace Sound_Spells.UI
     {
         [SerializeField] private UIDocument hudUIDocument;
         [SerializeField] private WeatherSystem weatherSystem;
+        [SerializeField] private PhonicsRecogniser phonicsRecogniser;
+        [SerializeField] private PhonicRandomiser phonicRandomiser;
     
         private Button _sunButton;
         private Button _rainButton;
@@ -16,11 +19,9 @@ namespace Sound_Spells.UI
 
         private VisualElement _phonicPopup;
         private Label _phonicText;
-        
-        private System.Action _sunClickedAction;
-        private System.Action _rainClickedAction;
-        private System.Action _cloudClickedAction;
-        private System.Action _stormClickedAction;
+
+        private string _phonicWord;
+        private WeatherType _pendingWeatherType;
 
         private void OnEnable()
         {
@@ -41,34 +42,45 @@ namespace Sound_Spells.UI
                 return;
             }
             
-            _sunClickedAction = () => ChangeWeatherAndShowPopup(WeatherType.Sunny);
-            _rainClickedAction = () => ChangeWeatherAndShowPopup(WeatherType.Rainy);
-            _cloudClickedAction = () => ChangeWeatherAndShowPopup(WeatherType.Cloudy);
-            _stormClickedAction = () => ChangeWeatherAndShowPopup(WeatherType.Stormy);
-            
-            _sunButton.clicked += _sunClickedAction;
-            _rainButton.clicked += _rainClickedAction;
-            _cloudButton.clicked += _cloudClickedAction;
-            _stormButton.clicked += _stormClickedAction;
+            _sunButton.clicked += () => ShowPhonicPopup(WeatherType.Sunny);
+            _rainButton.clicked += () => ShowPhonicPopup(WeatherType.Rainy);
+            _cloudButton.clicked += () => ShowPhonicPopup(WeatherType.Cloudy);
+            _stormButton.clicked += () => ShowPhonicPopup(WeatherType.Stormy);
+
+            if (phonicsRecogniser != null)
+            {
+                phonicsRecogniser.OnWordRecognised += OnPhonicRecognised;
+            }
             
             _phonicPopup.style.display = DisplayStyle.None;
         }
         
         private void OnDisable()
         {
-            if (_sunButton != null) _sunButton.clicked -= _sunClickedAction;
-            if (_rainButton != null) _rainButton.clicked -= _rainClickedAction;
-            if (_cloudButton != null) _cloudButton.clicked -= _cloudClickedAction;
-            if (_stormButton != null) _stormButton.clicked -= _stormClickedAction;
+            if (phonicsRecogniser != null)
+            {
+                phonicsRecogniser.OnWordRecognised -= OnPhonicRecognised;
+            }
         }
         
-        private void ChangeWeatherAndShowPopup(WeatherType newWeather)
+        private void ShowPhonicPopup(WeatherType newWeather)
         {
-            if (weatherSystem == null || _phonicText == null || _phonicPopup == null) return;
+            _pendingWeatherType = newWeather;
+            _phonicWord = phonicRandomiser.GenerateRandomWord(_phonicWord);
 
-            weatherSystem.SetWeather(newWeather);
-            _phonicText.text = $"{newWeather}";
-            _phonicPopup.style.display = DisplayStyle.Flex; 
+            if (string.IsNullOrEmpty(_phonicWord)) return;
+                
+            _phonicText.text = _phonicWord;
+            _phonicPopup.style.display = DisplayStyle.Flex;
+            
+            phonicsRecogniser.StartListeningFor(_phonicWord);
+        }
+
+        private void OnPhonicRecognised()
+        {
+            _phonicPopup.style.display = DisplayStyle.None;
+            phonicsRecogniser.StopListening();
+            weatherSystem.SetWeather(_pendingWeatherType);
         }
     }
 }
