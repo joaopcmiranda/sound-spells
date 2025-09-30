@@ -89,7 +89,7 @@ namespace Sound_Spells.Systems.Plant
 
         private void UpdateStats()
         {
-            var currentWeather = _weatherSystem.currentWeather;
+            var currentWeather = _weatherSystem.CurrentWeather;
             switch (currentWeather)
             {
                 case WeatherType.Sunny:

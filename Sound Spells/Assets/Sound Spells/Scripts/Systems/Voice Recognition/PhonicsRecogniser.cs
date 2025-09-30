@@ -1,87 +1,47 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 using System;
 
-public class PhonicsRecogniser : MonoBehaviour
+namespace Sound_Spells.Systems.Phonics_Generation
 {
-    private KeywordRecognizer keywordRecognizer;
-    private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
-    private BubbleManager bubbleManager;
+    public class PhonicsRecogniser : MonoBehaviour
+    {
+        public event Action OnWordRecognised;
+        
+        private KeywordRecognizer _keywordRecognizer;
 
-    void Start()
-    {
-        bubbleManager = FindObjectOfType<BubbleManager>();
-        if (bubbleManager == null)
+        public void StartListeningFor(string word)
         {
-            Debug.LogError("PhonicsRecognizer could not find the BubbleManager!");
-        }
-    }
-    
-    public void UpdateKeywords(List<string> newKeywords)
-    {
-        if (keywordRecognizer != null)
-        {
-            keywordRecognizer.Stop();
-            keywordRecognizer.OnPhraseRecognized -= OnPhraseRecognized;
-            keywordRecognizer.Dispose();
-            keywordRecognizer = null;
-        }
-        keywordActions.Clear();
-        
-        if (newKeywords == null || newKeywords.Count == 0)
-        {
-            Debug.Log("No active bubbles. Voice recognizer is paused.");
-            return;
-        }
-        
-        foreach (string keyword in newKeywords)
-        {
-            keywordActions.Add(keyword, () => bubbleManager.OnWordRecognized(keyword));
-        }
-        
-        keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray(), ConfidenceLevel.Low);
-        keywordRecognizer.OnPhraseRecognized += OnPhraseRecognized;
-        keywordRecognizer.Start();
-        
-        Debug.Log("Voice Recognizer updated. Now listening for: " + string.Join(", ", keywordActions.Keys));
-    }
+            if (string.IsNullOrEmpty(word)) return;
+            
+            StopListening();
 
-    private void OnPhraseRecognized(PhraseRecognizedEventArgs args)
-    {
-        Debug.Log("Heard keyword: " + args.text);
-        if (keywordActions.TryGetValue(args.text, out Action action))
-        {
-            action.Invoke();
+            var keywords = new string[] { word };
+            _keywordRecognizer = new KeywordRecognizer(keywords, ConfidenceLevel.Low);
+            _keywordRecognizer.OnPhraseRecognized += PhraseRecognised;
+            _keywordRecognizer.Start();
         }
-    }
-    
-    private void OnDestroy()
-    {
-        if (keywordRecognizer != null)
+
+        public void StopListening()
         {
-            keywordRecognizer.Stop();
-            keywordRecognizer.Dispose();
-        }
-    }
-    
-    private void OnApplicationFocus(bool hasFocus)
-    {
-        if (hasFocus)
-        {
-            if (keywordRecognizer != null && !keywordRecognizer.IsRunning)
+            if (_keywordRecognizer != null && _keywordRecognizer.IsRunning)
             {
-                Debug.Log("Application regained focus, restarting recognizer.");
-                keywordRecognizer.Start();
+                _keywordRecognizer.Stop();
             }
         }
-        else
+        
+        private void PhraseRecognised(PhraseRecognizedEventArgs args)
         {
-            if (keywordRecognizer != null && keywordRecognizer.IsRunning)
+            OnWordRecognised?.Invoke();
+        }
+
+        private void OnDisable()
+        {
+            if (_keywordRecognizer != null)
             {
-                Debug.Log("Application lost focus, stopping recognizer.");
-                keywordRecognizer.Stop();
+                _keywordRecognizer.OnPhraseRecognized -= PhraseRecognised;
+                _keywordRecognizer.Dispose();
+                _keywordRecognizer = null;
             }
         }
     }
