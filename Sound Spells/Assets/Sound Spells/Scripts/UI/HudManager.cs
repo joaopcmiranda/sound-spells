@@ -72,7 +72,8 @@ namespace Sound_Spells.UI
                 
             _phonicText.text = _phonicWord;
             _phonicPopup.style.display = DisplayStyle.Flex;
-            
+         
+            // OnPhonicRecognised();  
             phonicsRecogniser.StartListeningFor(_phonicWord);
         }
 
