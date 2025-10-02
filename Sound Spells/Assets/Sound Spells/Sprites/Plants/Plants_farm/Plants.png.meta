@@ -3056,7 +3056,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pineapple_mature
+      name: palm_seedling
       rect:
         serializedVersion: 2
         x: 135
@@ -4566,8 +4566,8 @@ TextureImporter:
       jalapeno_mature: 4394890074375008864
       jalapeno_seedling: 501674891198874538
       jalapeno_young: -8864902006001986957
+      palm_seedling: -6513889345089917345
       pineapple_bloom: 3836210254766709903
-      pineapple_mature: -6513889345089917345
       pineapple_seedling: -567439086853304433
       pineapple_young: 8105151658731668638
   mipmapLimitGroupName: 
