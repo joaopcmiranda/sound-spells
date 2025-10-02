@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pineapple 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8484489198188523249, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
+      propertyPath: _plantData
+      value: 
+      objectReference: {fileID: 11400000, guid: ad95d0fecc2dc9346a0c298c4d0894b2, type: 2}
     - target: {fileID: 8512454307176440603, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.37
@@ -388,6 +392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cucumber
       objectReference: {fileID: 0}
+    - target: {fileID: 8484489198188523249, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
+      propertyPath: _plantData
+      value: 
+      objectReference: {fileID: 11400000, guid: da651b55d97a77c4c98b1340c7e9f686, type: 2}
     - target: {fileID: 8512454307176440603, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.37
@@ -707,6 +715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cucumber (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8484489198188523249, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
+      propertyPath: _plantData
+      value: 
+      objectReference: {fileID: 11400000, guid: da651b55d97a77c4c98b1340c7e9f686, type: 2}
     - target: {fileID: 8512454307176440603, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.37
@@ -764,6 +776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pineapple 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8484489198188523249, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
+      propertyPath: _plantData
+      value: 
+      objectReference: {fileID: 11400000, guid: ad95d0fecc2dc9346a0c298c4d0894b2, type: 2}
     - target: {fileID: 8512454307176440603, guid: 953e70d820100ca4ab9e5462d0fd6c0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.68
