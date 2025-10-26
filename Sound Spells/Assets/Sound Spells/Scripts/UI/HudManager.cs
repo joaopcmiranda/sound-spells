@@ -4,11 +4,13 @@ using UnityEngine.UIElements;
 namespace Sound_Spells.UI
 {
     [RequireComponent(typeof(SpellBookController))]
+    [RequireComponent(typeof(GardenToolManager))]
     public class HudManager : MonoBehaviour
     {
         [SerializeField] private UIDocument hudUIDocument;
 
         private SpellBookController _spellBookController;
+        private GardenToolManager _gardenToolManager;
         private VisualElement _plantButton;
         private VisualElement _shovelButton;
         private VisualElement _sellButton;
@@ -17,6 +19,7 @@ namespace Sound_Spells.UI
         private void Awake()
         {
             _spellBookController = GetComponent<SpellBookController>();
+            _gardenToolManager = GetComponent<GardenToolManager>();
         }
 
         private void OnEnable()
@@ -73,20 +76,45 @@ namespace Sound_Spells.UI
 
         private void OnPlantButtonClicked(ClickEvent evt)
         {
-            Debug.Log("Plant button clicked");
-            // TODO: Implement plant logic
+            _gardenToolManager.ToggleTool(GardenTool.Plant);
+            UpdateButtonVisuals();
+            Debug.Log($"Plant tool toggled. Current tool: {_gardenToolManager.CurrentTool}");
         }
 
         private void OnShovelButtonClicked(ClickEvent evt)
         {
-            Debug.Log("Shovel button clicked");
-            // TODO: Implement shovel logic
+            _gardenToolManager.ToggleTool(GardenTool.Shovel);
+            UpdateButtonVisuals();
+            Debug.Log($"Shovel tool toggled. Current tool: {_gardenToolManager.CurrentTool}");
         }
 
         private void OnSellButtonClicked(ClickEvent evt)
         {
-            Debug.Log("Sell button clicked");
-            // TODO: Implement sell logic
+            _gardenToolManager.ToggleTool(GardenTool.Sell);
+            UpdateButtonVisuals();
+            Debug.Log($"Sell tool toggled. Current tool: {_gardenToolManager.CurrentTool}");
+        }
+
+        private void UpdateButtonVisuals()
+        {
+            // Reset all buttons to default state
+            _plantButton.RemoveFromClassList("garden-button-active");
+            _shovelButton.RemoveFromClassList("garden-button-active");
+            _sellButton.RemoveFromClassList("garden-button-active");
+
+            // Highlight the active button
+            switch (_gardenToolManager.CurrentTool)
+            {
+                case GardenTool.Plant:
+                    _plantButton.AddToClassList("garden-button-active");
+                    break;
+                case GardenTool.Shovel:
+                    _shovelButton.AddToClassList("garden-button-active");
+                    break;
+                case GardenTool.Sell:
+                    _sellButton.AddToClassList("garden-button-active");
+                    break;
+            }
         }
 
         private void OnMagicWandButtonClicked(ClickEvent evt)

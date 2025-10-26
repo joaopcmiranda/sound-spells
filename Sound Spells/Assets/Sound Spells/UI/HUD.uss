@@ -50,3 +50,10 @@
     background-color: rgb(120, 78, 37);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
+
+.garden-button-active {
+    background-color: rgb(180, 120, 60);
+    border-color: rgb(130, 85, 40);
+    border-width: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), inset 0 3px 0 rgba(255, 200, 100, 0.5);
+}

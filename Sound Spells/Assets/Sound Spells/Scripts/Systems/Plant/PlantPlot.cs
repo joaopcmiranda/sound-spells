@@ -2,11 +2,14 @@ using Sound_Spells.Models.Plant;
 using UnityEngine;
 namespace Sound_Spells.Systems.Plant
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public class PlantPlot : MonoBehaviour
     {
         public GameObject plantPrefab;
-        
+
         private PlantBase _plantedPlant;
+
+        public bool HasPlant => _plantedPlant != null;
 
         public void SowPlant(PlantData plant)
         {
