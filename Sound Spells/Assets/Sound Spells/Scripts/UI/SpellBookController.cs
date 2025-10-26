@@ -1,0 +1,134 @@
+using Sound_Spells.Systems.Phonics_Generation;
+using Sound_Spells.Systems.Weather;
+using UnityEngine;
+using UnityEngine.UIElements;
+
+namespace Sound_Spells.UI
+{
+    [RequireComponent(typeof(UIDocument))]
+    [RequireComponent(typeof(PhonicsRecogniser))]
+    [RequireComponent(typeof(PhonicRandomiser))]
+    public class SpellBookController : MonoBehaviour
+    {
+        [SerializeField] private WeatherSystem weatherSystem;
+
+        private UIDocument _hudUIDocument;
+        private PhonicsRecogniser _phonicsRecogniser;
+        private PhonicRandomiser _phonicRandomiser;
+
+        private Button _sunButton;
+        private Button _rainButton;
+        private Button _cloudButton;
+        private Button _stormButton;
+
+        private VisualElement _spellBookContainer;
+        private VisualElement _phonicPopup;
+        private Label _phonicText;
+
+        private string _phonicWord;
+        private WeatherType _pendingWeatherType;
+        private bool _isOpen;
+
+        private void Awake()
+        {
+            _hudUIDocument = GetComponent<UIDocument>();
+            _phonicsRecogniser = GetComponent<PhonicsRecogniser>();
+            _phonicRandomiser = GetComponent<PhonicRandomiser>();
+        }
+
+        private void OnEnable()
+        {
+            if (_hudUIDocument == null) return;
+            var root = _hudUIDocument.rootVisualElement;
+            if (root == null) return;
+
+            _sunButton = root.Q<Button>("Sun");
+            _rainButton = root.Q<Button>("Rain");
+            _cloudButton = root.Q<Button>("Cloud");
+            _stormButton = root.Q<Button>("Storm");
+            _spellBookContainer = root.Q<VisualElement>("Container");
+            _phonicPopup = root.Q<VisualElement>("PhonicPopup");
+            _phonicText = root.Q<Label>("Phonic");
+
+            if (_sunButton == null || _rainButton == null || _cloudButton == null ||
+                _stormButton == null || _phonicPopup == null || _phonicText == null)
+            {
+                Debug.LogError("A required spell UI element could not be found. Check UXML names.", this);
+                return;
+            }
+
+            _sunButton.clicked += () => ShowPhonicPopup(WeatherType.Sunny);
+            _rainButton.clicked += () => ShowPhonicPopup(WeatherType.Rainy);
+            _cloudButton.clicked += () => ShowPhonicPopup(WeatherType.Cloudy);
+            _stormButton.clicked += () => ShowPhonicPopup(WeatherType.Stormy);
+
+            if (_phonicsRecogniser != null)
+            {
+                _phonicsRecogniser.OnWordRecognised += OnPhonicRecognised;
+            }
+
+            _phonicPopup.style.display = DisplayStyle.None;
+
+            // Start closed
+            Close();
+        }
+
+        private void OnDisable()
+        {
+            if (_phonicsRecogniser != null)
+            {
+                _phonicsRecogniser.OnWordRecognised -= OnPhonicRecognised;
+            }
+        }
+
+        public void ToggleOpen()
+        {
+            if (_isOpen)
+            {
+                Close();
+            }
+            else
+            {
+                Open();
+            }
+        }
+
+        public void Open()
+        {
+            _isOpen = true;
+            if (_spellBookContainer != null)
+            {
+                _spellBookContainer.style.display = DisplayStyle.Flex;
+            }
+        }
+
+        public void Close()
+        {
+            _isOpen = false;
+            if (_spellBookContainer != null)
+            {
+                _spellBookContainer.style.display = DisplayStyle.None;
+            }
+        }
+
+        private void ShowPhonicPopup(WeatherType newWeather)
+        {
+            _pendingWeatherType = newWeather;
+            _phonicWord = _phonicRandomiser.GenerateRandomWord(_phonicWord);
+
+            if (string.IsNullOrEmpty(_phonicWord)) return;
+
+            _phonicText.text = _phonicWord;
+            _phonicPopup.style.display = DisplayStyle.Flex;
+
+            _phonicsRecogniser.StartListeningFor(_phonicWord);
+        }
+
+        private void OnPhonicRecognised()
+        {
+            _phonicPopup.style.display = DisplayStyle.None;
+            _phonicsRecogniser.StopListening();
+            weatherSystem.SetWeather(_pendingWeatherType);
+        }
+    }
+}

@@ -22,3 +22,31 @@
     font-size: 50px;
     -unity-text-align: middle-center;
 }
+
+.garden-button {
+    flex-grow: 0;
+    background-color: rgb(139, 90, 43);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    width: 100px;
+    height: 100px;
+    position: relative;
+    bottom: 0;
+    border-radius: 50%;
+    border-width: 4px;
+    border-color: rgb(88, 57, 27);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    align-content: auto;
+    align-items: auto;
+    margin-right: 31px;
+    background-size: 50% 50%;
+}
+
+.garden-button:hover {
+    background-color: rgb(160, 105, 50);
+    border-color: rgb(110, 70, 33);
+}
+
+.garden-button:active {
+    background-color: rgb(120, 78, 37);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
