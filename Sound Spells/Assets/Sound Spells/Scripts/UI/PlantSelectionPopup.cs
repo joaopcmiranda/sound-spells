@@ -37,7 +37,6 @@ namespace Sound_Spells.UI
                 return;
             }
 
-            // Get plant selection buttons
             _grapesButton = _popupContainer.Q<VisualElement>("GrapesButton");
             _cucumberButton = _popupContainer.Q<VisualElement>("CucumberButton");
             _pineappleButton = _popupContainer.Q<VisualElement>("PineappleButton");
@@ -48,51 +47,35 @@ namespace Sound_Spells.UI
                 return;
             }
 
-            // Enable picking mode so buttons can receive clicks
             _grapesButton.pickingMode = PickingMode.Position;
             _cucumberButton.pickingMode = PickingMode.Position;
             _pineappleButton.pickingMode = PickingMode.Position;
             _popupContainer.pickingMode = PickingMode.Position;
 
-            // Register click event on the container and determine which button was clicked
             _popupContainer.RegisterCallback<ClickEvent>(evt =>
             {
-                var clickPosition = evt.localPosition;
-                Debug.Log($"Popup container clicked at {clickPosition}");
-
                 if (_grapesButton.ContainsPoint(_grapesButton.WorldToLocal(evt.position)))
                 {
-                    Debug.Log("Click was on Grapes button!");
                     SelectPlant(_plantTool.GetGrapesPlantData());
                     evt.StopPropagation();
                 }
                 else if (_pineappleButton.ContainsPoint(_pineappleButton.WorldToLocal(evt.position)))
                 {
-                    Debug.Log("Click was on Pineapple button!");
                     SelectPlant(_plantTool.GetPineapplePlantData());
                     evt.StopPropagation();
                 }
                 else if (_cucumberButton.ContainsPoint(_cucumberButton.WorldToLocal(evt.position)))
                 {
-                    Debug.Log("Click was on Cucumber button!");
                     SelectPlant(_plantTool.GetCucumberPlantData());
                     evt.StopPropagation();
                 }
-                else
-                {
-                    Debug.Log("Click was not on any plant button.");
-                }
             });
 
-            Debug.Log("Plant selection popup registered for click events.");
-
-            // Hide popup by default
             Hide();
         }
 
         private void OnDisable()
         {
-            // Event is registered on the container, no need to unregister individual buttons
         }
 
         public void Show()
@@ -100,8 +83,7 @@ namespace Sound_Spells.UI
             if (_popupContainer != null)
             {
                 _popupContainer.style.display = DisplayStyle.Flex;
-                PlantPlotInput.InputEnabled = false; // Disable plant plot clicks while popup is open
-                Debug.Log("Plant selection popup shown. Plant plot input disabled.");
+                PlantPlotInput.InputEnabled = false;
             }
         }
 
@@ -110,32 +92,13 @@ namespace Sound_Spells.UI
             if (_popupContainer != null)
             {
                 _popupContainer.style.display = DisplayStyle.None;
-                PlantPlotInput.InputEnabled = true; // Re-enable plant plot clicks
-                Debug.Log("Plant selection popup hidden. Plant plot input enabled.");
+                PlantPlotInput.InputEnabled = true;
             }
         }
 
         public bool IsVisible()
         {
             return _popupContainer != null && _popupContainer.style.display == DisplayStyle.Flex;
-        }
-
-        private void OnGrapesButtonClicked(ClickEvent evt)
-        {
-            Debug.Log("Grapes button clicked!");
-            SelectPlant(_plantTool.GetGrapesPlantData());
-        }
-
-        private void OnCucumberButtonClicked(ClickEvent evt)
-        {
-            Debug.Log("Cucumber button clicked!");
-            SelectPlant(_plantTool.GetCucumberPlantData());
-        }
-
-        private void OnPineappleButtonClicked(ClickEvent evt)
-        {
-            Debug.Log("Pineapple button clicked!");
-            SelectPlant(_plantTool.GetPineapplePlantData());
         }
 
         private void SelectPlant(PlantData plantData)
@@ -146,19 +109,8 @@ namespace Sound_Spells.UI
                 return;
             }
 
-            Debug.Log($"Selecting plant: {plantData.name}");
             _plantTool.SetSelectedPlant(plantData);
-
-            if (OnPlantSelected != null)
-            {
-                Debug.Log("Invoking OnPlantSelected event.");
-                OnPlantSelected.Invoke(plantData);
-            }
-            else
-            {
-                Debug.LogWarning("OnPlantSelected event has no subscribers.");
-            }
-
+            OnPlantSelected?.Invoke(plantData);
             Hide();
         }
     }

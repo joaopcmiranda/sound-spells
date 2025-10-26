@@ -16,23 +16,22 @@ namespace Sound_Spells.Systems.Plant
 
         public static bool InputEnabled { get; set; } = true;
 
-        private static readonly Color ValidColor = new Color(0f, 1f, 0f, 0.4f); // Semi-transparent green
-        private static readonly Color InvalidColor = new Color(1f, 0f, 0f, 0.4f); // Semi-transparent red
-        private static readonly Color NeutralColor = new Color(0.7f, 0.7f, 0.7f, 0.4f); // Semi-transparent light gray
+        private static readonly Color ValidColor = new Color(0f, 1f, 0f, 0.4f);
+        private static readonly Color InvalidColor = new Color(1f, 0f, 0f, 0.4f);
+        private static readonly Color NeutralColor = new Color(0.7f, 0.7f, 0.7f, 0.4f);
 
         private void Awake()
         {
             _plantPlot = GetComponent<PlantPlot>();
 
-            // Create hover highlight sprite renderer
             var highlightObj = new GameObject("HoverHighlight");
             highlightObj.transform.SetParent(transform);
             highlightObj.transform.localPosition = Vector3.zero;
-            highlightObj.transform.localScale = new Vector3(1.2f, 1.2f, 1f); // Slightly larger than plot
+            highlightObj.transform.localScale = new Vector3(1.2f, 1.2f, 1f);
 
             _hoverHighlight = highlightObj.AddComponent<SpriteRenderer>();
             _hoverHighlight.sprite = CreateSquareSprite();
-            _hoverHighlight.sortingOrder = 99; // Just below plant layer
+            _hoverHighlight.sortingOrder = 99;
             _hoverHighlight.enabled = false;
         }
 
@@ -55,13 +54,10 @@ namespace Sound_Spells.Systems.Plant
         private void Update()
         {
             if (_gardenToolManager == null || _mainCamera == null) return;
-
-            // Skip input handling if disabled (e.g., when popup is open)
             if (!InputEnabled) return;
 
             HandleHover();
 
-            // Check for mouse click using new Input System
             if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
             {
                 HandleMouseClick();
@@ -70,20 +66,15 @@ namespace Sound_Spells.Systems.Plant
 
         private void HandleHover()
         {
-            // Only show hover highlight if a tool is selected
             if (_gardenToolManager.CurrentTool == GardenTool.None)
             {
                 _hoverHighlight.enabled = false;
                 return;
             }
 
-            // Check if mouse exists
             if (Mouse.current == null) return;
 
-            // Convert mouse position to world position
             Vector2 mousePosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
-            // Raycast to check if we're hovering over this plot
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
             if (hit.collider != null && hit.collider.gameObject == gameObject)
@@ -102,15 +93,12 @@ namespace Sound_Spells.Systems.Plant
             switch (_gardenToolManager.CurrentTool)
             {
                 case GardenTool.Shovel:
-                    // Red if has plant (valid to remove), gray if empty
                     return _plantPlot.HasPlant ? InvalidColor : NeutralColor;
 
                 case GardenTool.Plant:
-                    // Green if empty (valid to plant), gray if has plant
                     return !_plantPlot.HasPlant ? ValidColor : NeutralColor;
 
                 case GardenTool.Sell:
-                    // Green if blooming and can sell, gray otherwise
                     if (_plantPlot.PlantedPlant != null && _plantPlot.PlantedPlant.CanSellFruits())
                     {
                         return ValidColor;
@@ -124,35 +112,23 @@ namespace Sound_Spells.Systems.Plant
 
         private void HandleMouseClick()
         {
-            // Check if mouse exists
             if (Mouse.current == null) return;
 
-            // Convert mouse position to world position
             Vector2 mousePosition = _mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
-            // Raycast to check if we clicked on this plot
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
-                // We clicked on this plant plot
-                ProcessToolAction();
+                _gardenToolManager.OnPlotClicked(_plantPlot);
             }
-        }
-
-        private void ProcessToolAction()
-        {
-            _gardenToolManager.OnPlotClicked(_plantPlot);
         }
 
         private Sprite CreateSquareSprite()
         {
-            // Create a 100x100 white texture that we'll tint with colors
             int size = 100;
             var texture = new Texture2D(size, size);
-            texture.filterMode = FilterMode.Point; // Crisp edges
+            texture.filterMode = FilterMode.Point;
 
-            // Fill entire texture with white
             Color[] pixels = new Color[size * size];
             for (int i = 0; i < pixels.Length; i++)
             {
@@ -165,7 +141,7 @@ namespace Sound_Spells.Systems.Plant
                 texture,
                 new Rect(0, 0, size, size),
                 new Vector2(0.5f, 0.5f),
-                100f // Pixels per unit - 100 pixels = 1 unit
+                100f
             );
         }
     }

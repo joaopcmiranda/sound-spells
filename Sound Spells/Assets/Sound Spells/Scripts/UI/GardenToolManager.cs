@@ -41,7 +41,6 @@ namespace Sound_Spells.UI
 
         private void Start()
         {
-            // Load cursors from the GardenTools folder
             if (shovelCursor == null)
             {
                 shovelCursor = Resources.Load<Texture2D>("Sprites/Icons/GardenTools/shovel");
@@ -125,7 +124,6 @@ namespace Sound_Spells.UI
 
         private void OnDisable()
         {
-            // Reset cursor when disabled
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
 
@@ -143,7 +141,6 @@ namespace Sound_Spells.UI
                     _sellTool.OnPlotClicked(plot);
                     break;
                 case GardenTool.None:
-                    Debug.Log($"Clicked on plot: {plot.gameObject.name}");
                     break;
             }
         }
@@ -151,8 +148,6 @@ namespace Sound_Spells.UI
         private bool IsValidCursorTexture(Texture2D texture)
         {
             if (texture == null) return false;
-
-            // Check if texture format is RGBA32
             return texture.format == TextureFormat.RGBA32 && texture.isReadable;
         }
     }

@@ -17,7 +17,6 @@ namespace Sound_Spells.UI
 
         private void Awake()
         {
-            // Default to grapes
             _selectedPlantData = grapesPlantData;
         }
 
@@ -30,7 +29,6 @@ namespace Sound_Spells.UI
             }
 
             _selectedPlantData = plantData;
-            Debug.Log($"Selected plant: {plantData.name}");
         }
 
         public PlantData GetGrapesPlantData() => grapesPlantData;
@@ -39,11 +37,7 @@ namespace Sound_Spells.UI
 
         public override void OnPlotClicked(PlantPlot plot)
         {
-            if (plot.HasPlant)
-            {
-                Debug.Log("Cannot plant - plot already has a plant.");
-                return;
-            }
+            if (plot.HasPlant) return;
 
             if (_selectedPlantData == null)
             {
@@ -52,7 +46,6 @@ namespace Sound_Spells.UI
             }
 
             plot.SowPlant(_selectedPlantData);
-            Debug.Log($"Planted {_selectedPlantData.name} in plot: {plot.gameObject.name}");
         }
     }
 }

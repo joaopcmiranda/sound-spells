@@ -101,26 +101,20 @@ namespace Sound_Spells.UI
 
         private void OnPlantButtonClicked(ClickEvent evt)
         {
-            // If plant tool is already active, deselect it
             if (_gardenToolManager.CurrentTool == GardenTool.Plant)
             {
                 _gardenToolManager.SetTool(GardenTool.None);
                 _plantSelectionPopup.Hide();
                 ResetPlantButtonIcon();
                 UpdateButtonVisuals();
-                Debug.Log("Plant tool deselected.");
             }
-            // If popup is visible but tool not active, hide it
             else if (_plantSelectionPopup.IsVisible())
             {
                 _plantSelectionPopup.Hide();
-                Debug.Log("Plant selection popup closed.");
             }
-            // Otherwise, show the popup
             else
             {
                 _plantSelectionPopup.Show();
-                Debug.Log("Plant selection popup opened.");
             }
         }
 
@@ -130,7 +124,6 @@ namespace Sound_Spells.UI
             ResetPlantButtonIcon();
             _gardenToolManager.ToggleTool(GardenTool.Shovel);
             UpdateButtonVisuals();
-            Debug.Log($"Shovel tool toggled. Current tool: {_gardenToolManager.CurrentTool}");
         }
 
         private void OnSellButtonClicked(ClickEvent evt)
@@ -139,17 +132,14 @@ namespace Sound_Spells.UI
             ResetPlantButtonIcon();
             _gardenToolManager.ToggleTool(GardenTool.Sell);
             UpdateButtonVisuals();
-            Debug.Log($"Sell tool toggled. Current tool: {_gardenToolManager.CurrentTool}");
         }
 
         private void UpdateButtonVisuals()
         {
-            // Reset all buttons to default state
             _plantButton.RemoveFromClassList("garden-button-active");
             _shovelButton.RemoveFromClassList("garden-button-active");
             _sellButton.RemoveFromClassList("garden-button-active");
 
-            // Highlight the active button
             switch (_gardenToolManager.CurrentTool)
             {
                 case GardenTool.Plant:
@@ -171,21 +161,15 @@ namespace Sound_Spells.UI
 
         private void OnPlantSelected(PlantData plantData)
         {
-            // Activate the plant tool
             _gardenToolManager.SetTool(GardenTool.Plant);
             UpdateButtonVisuals();
-
-            // Update plant button icon based on selected plant
             UpdatePlantButtonIcon(plantData);
-
-            Debug.Log($"Plant selected: {plantData.name}. Plant tool activated.");
         }
 
         private void UpdatePlantButtonIcon(PlantData plantData)
         {
             if (_plantButton == null || plantData == null) return;
 
-            // Match the plant data to the correct icon and size
             if (plantData == _plantTool.GetGrapesPlantData() && grapesIcon != null)
             {
                 _plantButton.style.backgroundImage = new StyleBackground(Background.FromSprite(grapesIcon));
@@ -203,7 +187,6 @@ namespace Sound_Spells.UI
             }
             else if (whitePlantIcon != null)
             {
-                // Fallback to white plant icon with default size
                 _plantButton.style.backgroundImage = new StyleBackground(Background.FromTexture2D(whitePlantIcon));
                 ResetBackgroundSize(_plantButton);
             }
@@ -225,7 +208,6 @@ namespace Sound_Spells.UI
 
         private void ResetBackgroundSize(VisualElement element)
         {
-            // Reset to auto (default)
             element.style.backgroundSize = StyleKeyword.Null;
         }
     }

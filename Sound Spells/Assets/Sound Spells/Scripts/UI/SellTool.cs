@@ -7,21 +7,8 @@ namespace Sound_Spells.UI
     {
         public override void OnPlotClicked(PlantPlot plot)
         {
-            if (!plot.HasPlant)
-            {
-                Debug.Log("No plant to sell from in this plot.");
-                return;
-            }
-
-            bool sold = plot.SellFruits();
-            if (sold)
-            {
-                Debug.Log($"Sold fruits from plot: {plot.gameObject.name}");
-            }
-            else
-            {
-                Debug.Log("Cannot sell - plant must be blooming and healthy.");
-            }
+            if (!plot.HasPlant) return;
+            plot.SellFruits();
         }
     }
 }

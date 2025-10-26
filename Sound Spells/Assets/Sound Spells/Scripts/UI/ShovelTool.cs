@@ -7,14 +7,8 @@ namespace Sound_Spells.UI
     {
         public override void OnPlotClicked(PlantPlot plot)
         {
-            if (!plot.HasPlant)
-            {
-                Debug.Log("No plant to remove in this plot.");
-                return;
-            }
-
+            if (!plot.HasPlant) return;
             plot.RemovePlant();
-            Debug.Log($"Removed plant from plot: {plot.gameObject.name}");
         }
     }
 }
