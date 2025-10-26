@@ -10,6 +10,7 @@ namespace Sound_Spells.Systems.Plant
         private PlantBase _plantedPlant;
 
         public bool HasPlant => _plantedPlant != null;
+        public PlantBase PlantedPlant => _plantedPlant;
 
         public void SowPlant(PlantData plant)
         {
@@ -37,6 +38,16 @@ namespace Sound_Spells.Systems.Plant
             {
                 Debug.LogWarning("No plant to remove in this plot.");
             }
+        }
+
+        public bool SellFruits()
+        {
+            if (_plantedPlant == null)
+            {
+                return false;
+            }
+
+            return _plantedPlant.SellFruits();
         }
         
         // Debug 

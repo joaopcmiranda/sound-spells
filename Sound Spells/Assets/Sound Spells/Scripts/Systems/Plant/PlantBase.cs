@@ -211,6 +211,28 @@ namespace Sound_Spells.Systems.Plant
             }
         }
         
+        public bool CanSellFruits()
+        {
+            return _currentState == PlantState.Blooming && _currentAge == PlantAge.Mature;
+        }
+
+        public bool SellFruits()
+        {
+            if (!CanSellFruits())
+            {
+                return false;
+            }
+
+            // Reset bloom progress to return to healthy mature state
+            _bloomProgress = 0;
+            _currentState = PlantState.Healthy;
+            UpdateVisuals();
+
+            // TODO: Add currency/inventory system integration here
+
+            return true;
+        }
+
         private void UpdateIndicator()
         {
             if (!elementIndicator) return;

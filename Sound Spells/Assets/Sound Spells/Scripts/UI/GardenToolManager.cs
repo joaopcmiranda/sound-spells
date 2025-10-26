@@ -1,3 +1,4 @@
+using Sound_Spells.Systems.Plant;
 using UnityEngine;
 
 namespace Sound_Spells.UI
@@ -10,6 +11,9 @@ namespace Sound_Spells.UI
         Sell
     }
 
+    [RequireComponent(typeof(PlantTool))]
+    [RequireComponent(typeof(ShovelTool))]
+    [RequireComponent(typeof(SellTool))]
     public class GardenToolManager : MonoBehaviour
     {
         [SerializeField] private Texture2D shovelCursor;
@@ -22,8 +26,18 @@ namespace Sound_Spells.UI
         [SerializeField] private Vector2 sellHotspot = new Vector2(16, 16);
 
         private GardenTool _currentTool = GardenTool.None;
+        private PlantTool _plantTool;
+        private ShovelTool _shovelTool;
+        private SellTool _sellTool;
 
         public GardenTool CurrentTool => _currentTool;
+
+        private void Awake()
+        {
+            _plantTool = GetComponent<PlantTool>();
+            _shovelTool = GetComponent<ShovelTool>();
+            _sellTool = GetComponent<SellTool>();
+        }
 
         private void Start()
         {
@@ -109,6 +123,25 @@ namespace Sound_Spells.UI
         {
             // Reset cursor when disabled
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+
+        public void OnPlotClicked(PlantPlot plot)
+        {
+            switch (_currentTool)
+            {
+                case GardenTool.Plant:
+                    _plantTool.OnPlotClicked(plot);
+                    break;
+                case GardenTool.Shovel:
+                    _shovelTool.OnPlotClicked(plot);
+                    break;
+                case GardenTool.Sell:
+                    _sellTool.OnPlotClicked(plot);
+                    break;
+                case GardenTool.None:
+                    Debug.Log($"Clicked on plot: {plot.gameObject.name}");
+                    break;
+            }
         }
     }
 }
