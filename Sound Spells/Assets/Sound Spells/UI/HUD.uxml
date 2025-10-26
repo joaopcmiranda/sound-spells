@@ -15,11 +15,16 @@
                 <ui:Label text="apple" name="Phonic" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Icons/UI/cloud.png?fileID=-6981827254641702772&amp;guid=5b626db4ab5cb9e4cb1ed035d1ca3e1e&amp;type=3#cloud_0&quot;); padding-right: 20%; padding-left: 20%; padding-bottom: 15%; padding-top: 15%; right: 0; width: 80%; height: 100%; font-size: 30px; position: absolute; top: 0; bottom: 100%; left: 0; -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); -unity-font-style: bold;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="GardenButtons" style="flex-grow: 1; left: 81px; bottom: 30px; height: auto; align-items: flex-end; align-content: auto; align-self: auto; flex-direction: row; justify-content: flex-start; width: 600px;">
+        <ui:VisualElement name="GardenButtons" style="flex-grow: 1; left: 81px; bottom: 30px; height: 111px; align-items: flex-end; align-content: auto; align-self: auto; flex-direction: row; justify-content: flex-start; width: 600px;">
             <ui:VisualElement class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Icons/GardenTools/leaves-of-a-plant.png?fileID=2800000&amp;guid=a70e0ae8c71aed9499c4eb8249b852f3&amp;type=3#leaves-of-a-plant&quot;);" />
             <ui:VisualElement class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Icons/GardenTools/shovel.png?fileID=2800000&amp;guid=c6d6f83deffc08940a51df826e088415&amp;type=3#shovel&quot;);" />
             <ui:VisualElement class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Icons/GardenTools/money.png?fileID=2800000&amp;guid=3e9a058a1c3736c438d9758e79e6520e&amp;type=3#money&quot;);" />
             <ui:VisualElement class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Icons/GardenTools/magic-wand.png?fileID=2800000&amp;guid=a94ef34812f2f5d45a104b3eea190cef&amp;type=3#magic-wand&quot;);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="PlantSelectionPopup" style="flex-grow: 1; left: 81px; bottom: 152px; height: 111px; align-items: flex-end; align-content: auto; align-self: auto; flex-direction: row; justify-content: flex-start; width: 600px; display: none; position: absolute;">
+            <ui:VisualElement name="GrapesButton" class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Plants/Plants_farm/Plants.png?fileID=-1268064389544249124&amp;guid=5a3f05b71ffec52468b2c4f78ac011f9&amp;type=3#grape_bloom&quot;); background-size: 50% 70%;" />
+            <ui:VisualElement name="PineappleButton" class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Plants/Plants_farm/Plants.png?fileID=3836210254766709903&amp;guid=5a3f05b71ffec52468b2c4f78ac011f9&amp;type=3#pineapple_bloom&quot;); background-size: 73% 67%;" />
+            <ui:VisualElement name="CucumberButton" class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Plants/Plants_farm/Plants.png?fileID=2899441650435199170&amp;guid=5a3f05b71ffec52468b2c4f78ac011f9&amp;type=3#cucumber_bloom&quot;); background-size: 50% 68%;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

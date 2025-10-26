@@ -6,7 +6,36 @@ namespace Sound_Spells.UI
 {
     public class PlantTool : GardenToolBase
     {
+        [Header("Available Plants")]
         [SerializeField] private PlantData grapesPlantData;
+        [SerializeField] private PlantData cucumberPlantData;
+        [SerializeField] private PlantData pineapplePlantData;
+
+        private PlantData _selectedPlantData;
+
+        public PlantData SelectedPlant => _selectedPlantData;
+
+        private void Awake()
+        {
+            // Default to grapes
+            _selectedPlantData = grapesPlantData;
+        }
+
+        public void SetSelectedPlant(PlantData plantData)
+        {
+            if (plantData == null)
+            {
+                Debug.LogError("Cannot set null plant data.", this);
+                return;
+            }
+
+            _selectedPlantData = plantData;
+            Debug.Log($"Selected plant: {plantData.name}");
+        }
+
+        public PlantData GetGrapesPlantData() => grapesPlantData;
+        public PlantData GetCucumberPlantData() => cucumberPlantData;
+        public PlantData GetPineapplePlantData() => pineapplePlantData;
 
         public override void OnPlotClicked(PlantPlot plot)
         {
@@ -16,14 +45,14 @@ namespace Sound_Spells.UI
                 return;
             }
 
-            if (grapesPlantData == null)
+            if (_selectedPlantData == null)
             {
-                Debug.LogError("Grapes PlantData not assigned in PlantTool. Please assign it in the inspector.", this);
+                Debug.LogError("No plant selected in PlantTool. Please select a plant first.", this);
                 return;
             }
 
-            plot.SowPlant(grapesPlantData);
-            Debug.Log($"Planted grapes in plot: {plot.gameObject.name}");
+            plot.SowPlant(_selectedPlantData);
+            Debug.Log($"Planted {_selectedPlantData.name} in plot: {plot.gameObject.name}");
         }
     }
 }

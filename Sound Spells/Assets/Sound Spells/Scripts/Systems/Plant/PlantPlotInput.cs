@@ -14,6 +14,8 @@ namespace Sound_Spells.Systems.Plant
         private Camera _mainCamera;
         private SpriteRenderer _hoverHighlight;
 
+        public static bool InputEnabled { get; set; } = true;
+
         private static readonly Color ValidColor = new Color(0f, 1f, 0f, 0.4f); // Semi-transparent green
         private static readonly Color InvalidColor = new Color(1f, 0f, 0f, 0.4f); // Semi-transparent red
         private static readonly Color NeutralColor = new Color(0.7f, 0.7f, 0.7f, 0.4f); // Semi-transparent light gray
@@ -53,6 +55,9 @@ namespace Sound_Spells.Systems.Plant
         private void Update()
         {
             if (_gardenToolManager == null || _mainCamera == null) return;
+
+            // Skip input handling if disabled (e.g., when popup is open)
+            if (!InputEnabled) return;
 
             HandleHover();
 

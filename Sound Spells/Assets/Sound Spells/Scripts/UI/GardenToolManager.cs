@@ -91,12 +91,16 @@ namespace Sound_Spells.UI
                     break;
 
                 case GardenTool.Plant:
-                    if (plantCursor != null)
+                    if (plantCursor != null && IsValidCursorTexture(plantCursor))
                     {
                         Cursor.SetCursor(plantCursor, plantHotspot, CursorMode.Auto);
                     }
                     else
                     {
+                        if (plantCursor != null)
+                        {
+                            Debug.LogWarning("Plant cursor texture is not in a valid format for cursors. It must be RGBA32, readable, with alphaIsTransparency enabled. Using default cursor instead.");
+                        }
                         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                     }
                     break;
@@ -142,6 +146,14 @@ namespace Sound_Spells.UI
                     Debug.Log($"Clicked on plot: {plot.gameObject.name}");
                     break;
             }
+        }
+
+        private bool IsValidCursorTexture(Texture2D texture)
+        {
+            if (texture == null) return false;
+
+            // Check if texture format is RGBA32
+            return texture.format == TextureFormat.RGBA32 && texture.isReadable;
         }
     }
 }
