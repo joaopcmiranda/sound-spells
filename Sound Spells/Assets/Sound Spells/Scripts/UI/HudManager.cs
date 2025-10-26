@@ -1,4 +1,5 @@
 using Sound_Spells.Models.Plant;
+using SoundSpells.Systems.Currency;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -26,6 +27,8 @@ namespace Sound_Spells.UI
         private VisualElement _shovelButton;
         private VisualElement _sellButton;
         private VisualElement _magicWandButton;
+        private Label _moneyValueLabel;
+        private bool _currencySubscribed = false;
 
         private void Awake()
         {
@@ -79,6 +82,29 @@ namespace Sound_Spells.UI
             {
                 _plantSelectionPopup.OnPlantSelected += OnPlantSelected;
             }
+
+            _moneyValueLabel = root.Q<Label>("MoneyValue");
+            TrySubscribeToCurrency();
+        }
+
+        private void Start()
+        {
+            if (!_currencySubscribed)
+            {
+                TrySubscribeToCurrency();
+            }
+        }
+
+        private void TrySubscribeToCurrency()
+        {
+            if (_currencySubscribed) return;
+
+            if (CurrencyManager.Instance != null)
+            {
+                CurrencyManager.Instance.OnBalanceChanged += UpdateMoneyDisplay;
+                UpdateMoneyDisplay(CurrencyManager.Instance.CurrentBalance);
+                _currencySubscribed = true;
+            }
         }
 
         private void OnDisable()
@@ -96,6 +122,20 @@ namespace Sound_Spells.UI
             if (_plantSelectionPopup != null)
             {
                 _plantSelectionPopup.OnPlantSelected -= OnPlantSelected;
+            }
+
+            if (_currencySubscribed && CurrencyManager.Instance != null)
+            {
+                CurrencyManager.Instance.OnBalanceChanged -= UpdateMoneyDisplay;
+                _currencySubscribed = false;
+            }
+        }
+
+        private void UpdateMoneyDisplay(float balance)
+        {
+            if (_moneyValueLabel != null)
+            {
+                _moneyValueLabel.text = balance.ToString("F0");
             }
         }
 

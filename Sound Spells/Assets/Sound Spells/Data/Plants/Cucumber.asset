@@ -26,6 +26,8 @@ MonoBehaviour:
   overwaterTolerance: 1
   lowSunlightTolerance: 0.5
   highSunlightTolerance: 0.8
+  plantingCost: 20
+  sellValue: 5
   sprites:
   - age: 0
     state: 0
