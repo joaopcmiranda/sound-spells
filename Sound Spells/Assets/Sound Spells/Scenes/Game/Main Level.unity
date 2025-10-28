@@ -654,6 +654,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22585fba53084714780d179ffbc07b26, type: 3}
+--- !u!1 &868288278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868288282}
+  - component: {fileID: 868288281}
+  - component: {fileID: 868288280}
+  - component: {fileID: 868288279}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &868288279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868288278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55130e6508ae7748b0ef730f3de239b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.CurrencyFeedbackManager
+  floatingTextPrefab: {fileID: 6713757933438118614, guid: b4fab0adacbc1bd4196589bd3e2a1924, type: 3}
+  moneySpentColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  moneyEarnedColor: {r: 0.3, g: 1, b: 0.3, a: 1}
+  dailyInterestColor: {r: 1, g: 0.84, b: 0, a: 1}
+--- !u!114 &868288280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868288278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e807147bada9e89449381eab3f69bfee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundSpells.Systems.Time.GameTimeManager
+  secondsPerDay: 60
+  dailyInterestAmount: 1
+--- !u!114 &868288281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868288278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ea0588f98895448a4607ff4fba55b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundSpells.Systems.Currency.CurrencyManager
+  startingBalance: 100
+--- !u!4 &868288282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868288278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &975850785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -920,6 +997,85 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22585fba53084714780d179ffbc07b26, type: 3}
+--- !u!1 &1202290401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1202290404}
+  - component: {fileID: 1202290403}
+  - component: {fileID: 1202290402}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1202290402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202290401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
+--- !u!114 &1202290403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202290401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1202290404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202290401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1354209598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6355312747807531039, guid: 22585fba53084714780d179ffbc07b26, type: 3}
@@ -1636,9 +1792,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2800000, guid: c6d6f83deffc08940a51df826e088415, type: 3}
     - target: {fileID: 4581404705359091778, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+      propertyPath: grapesIcon
+      value: 
+      objectReference: {fileID: -1268064389544249124, guid: 5a3f05b71ffec52468b2c4f78ac011f9, type: 3}
+    - target: {fileID: 4581404705359091778, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+      propertyPath: cucumberIcon
+      value: 
+      objectReference: {fileID: 2899441650435199170, guid: 5a3f05b71ffec52468b2c4f78ac011f9, type: 3}
+    - target: {fileID: 4581404705359091778, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+      propertyPath: pineappleIcon
+      value: 
+      objectReference: {fileID: 3836210254766709903, guid: 5a3f05b71ffec52468b2c4f78ac011f9, type: 3}
+    - target: {fileID: 4581404705359091778, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
       propertyPath: weatherSystem
       value: 
       objectReference: {fileID: 1680048368}
+    - target: {fileID: 4581404705359091778, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+      propertyPath: whitePlantIcon
+      value: 
+      objectReference: {fileID: 2800000, guid: a70e0ae8c71aed9499c4eb8249b852f3, type: 3}
     - target: {fileID: 5223245523804377095, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
       propertyPath: weatherSystem
       value: 
@@ -1647,6 +1819,14 @@ PrefabInstance:
       propertyPath: grapesPlantData
       value: 
       objectReference: {fileID: 11400000, guid: 291f6b99d14edc842b41359bbe0acfd6, type: 2}
+    - target: {fileID: 8097503287617307104, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+      propertyPath: cucumberPlantData
+      value: 
+      objectReference: {fileID: 11400000, guid: da651b55d97a77c4c98b1340c7e9f686, type: 2}
+    - target: {fileID: 8097503287617307104, guid: 72294f35df1588c40beb0ed5eedef78f, type: 3}
+      propertyPath: pineapplePlantData
+      value: 
+      objectReference: {fileID: 11400000, guid: ad95d0fecc2dc9346a0c298c4d0894b2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1657,8 +1837,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1089102382}
+  - {fileID: 868288282}
   - {fileID: 419224725}
   - {fileID: 681256648}
   - {fileID: 4937431130409614873}
   - {fileID: 1982371588}
   - {fileID: 1680048367}
+  - {fileID: 1202290404}

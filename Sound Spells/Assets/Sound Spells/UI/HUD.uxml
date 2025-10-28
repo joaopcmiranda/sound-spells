@@ -1,6 +1,10 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Sound%20Spells/UI/HUD.uss?fileID=7433441132597879392&amp;guid=292ea76fcb8082f40a54ffb5f7b87094&amp;type=3#HUD" />
     <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
+        <ui:VisualElement name="MoneyDisplay" style="position: absolute; top: 20px; right: 20px; flex-direction: row; align-items: center; background-color: rgba(0, 0, 0, 0.7); padding: 10px; border-radius: 10px;">
+            <ui:Label text="$" name="CurrencySymbol" style="font-size: 32px; color: rgb(255, 215, 0); margin-right: 5px; -unity-font-style: bold;" />
+            <ui:Label text="100" name="MoneyValue" style="font-size: 32px; color: rgb(255, 255, 255); -unity-font-style: bold;" />
+        </ui:VisualElement>
         <ui:VisualElement name="Container" style="flex-grow: 1; height: 70%; position: absolute; width: 50%; bottom: 0%; left: 55%; background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Icons/Items/Scroll%202/Scroll%202%20256.png?fileID=2800000&amp;guid=4dfe7c40161229e4c9be98f4ceb3f1b7&amp;type=3#Scroll 2 256&quot;); -unity-background-scale-mode: scale-to-fit;">
             <ui:VisualElement name="ButtonHolder" style="flex-grow: 1; top: auto; position: absolute; height: 40%; width: 100%; flex-direction: row; justify-content: center; align-items: center; bottom: 35%; padding-bottom: 2%; right: auto; left: 3%;">
                 <ui:Button name="Sun" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Icons/Nature/Sun/Sun%20Outline%20256.png?fileID=2800000&amp;guid=b68f472fb68686a44a91d1daae69a1a8&amp;type=3#Sun Outline 256&quot;); -unity-background-scale-mode: scale-to-fit; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; width: 20%; height: 100%;" />
@@ -22,9 +26,18 @@
             <ui:VisualElement class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Icons/GardenTools/magic-wand.png?fileID=2800000&amp;guid=a94ef34812f2f5d45a104b3eea190cef&amp;type=3#magic-wand&quot;);" />
         </ui:VisualElement>
         <ui:VisualElement name="PlantSelectionPopup" style="flex-grow: 1; left: 81px; bottom: 152px; height: 111px; align-items: flex-end; align-content: auto; align-self: auto; flex-direction: row; justify-content: flex-start; width: 600px; display: none; position: absolute;">
-            <ui:VisualElement name="GrapesButton" class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Plants/Plants_farm/Plants.png?fileID=-1268064389544249124&amp;guid=5a3f05b71ffec52468b2c4f78ac011f9&amp;type=3#grape_bloom&quot;); background-size: 50% 70%;" />
-            <ui:VisualElement name="PineappleButton" class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Plants/Plants_farm/Plants.png?fileID=3836210254766709903&amp;guid=5a3f05b71ffec52468b2c4f78ac011f9&amp;type=3#pineapple_bloom&quot;); background-size: 73% 67%;" />
-            <ui:VisualElement name="CucumberButton" class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Plants/Plants_farm/Plants.png?fileID=2899441650435199170&amp;guid=5a3f05b71ffec52468b2c4f78ac011f9&amp;type=3#cucumber_bloom&quot;); background-size: 50% 68%;" />
+            <ui:VisualElement name="GrapesButtonContainer" style="flex-direction: column; margin-right: 10px;">
+                <ui:VisualElement name="GrapesButton" class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Plants/Plants_farm/Plants.png?fileID=-1268064389544249124&amp;guid=5a3f05b71ffec52468b2c4f78ac011f9&amp;type=3#grape_bloom&quot;); background-size: 50% 70%;" />
+                <ui:Label text="$25" name="GrapesPrice" style="align-self: center; -unity-font-style: bold; font-size: 18px; color: rgb(255, 215, 0); margin-top: 5px; background-color: rgba(0, 0, 0, 0.7); padding: 3px 8px; border-radius: 5px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="PineappleButtonContainer" style="flex-direction: column; margin-right: 10px;">
+                <ui:VisualElement name="PineappleButton" class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Plants/Plants_farm/Plants.png?fileID=3836210254766709903&amp;guid=5a3f05b71ffec52468b2c4f78ac011f9&amp;type=3#pineapple_bloom&quot;); background-size: 73% 67%;" />
+                <ui:Label text="$30" name="PineapplePrice" style="align-self: center; -unity-font-style: bold; font-size: 18px; color: rgb(255, 215, 0); margin-top: 5px; background-color: rgba(0, 0, 0, 0.7); padding: 3px 8px; border-radius: 5px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="CucumberButtonContainer" style="flex-direction: column; margin-right: 10px;">
+                <ui:VisualElement name="CucumberButton" class="garden-button" style="background-image: url(&quot;project://database/Assets/Sound%20Spells/Sprites/Plants/Plants_farm/Plants.png?fileID=2899441650435199170&amp;guid=5a3f05b71ffec52468b2c4f78ac011f9&amp;type=3#cucumber_bloom&quot;); background-size: 50% 68%;" />
+                <ui:Label text="$20" name="CucumberPrice" style="align-self: center; -unity-font-style: bold; font-size: 18px; color: rgb(255, 215, 0); margin-top: 5px; background-color: rgba(0, 0, 0, 0.7); padding: 3px 8px; border-radius: 5px;" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -1,5 +1,6 @@
 using Sound_Spells.Models.Plant;
 using Sound_Spells.Systems.Plant;
+using SoundSpells.Systems.Currency;
 using UnityEngine;
 
 namespace Sound_Spells.UI
@@ -45,7 +46,19 @@ namespace Sound_Spells.UI
                 return;
             }
 
-            plot.SowPlant(_selectedPlantData);
+            if (CurrencyManager.Instance != null)
+            {
+                float cost = _selectedPlantData.plantingCost;
+
+                if (CurrencyManager.Instance.TrySpendMoney(cost, plot.transform.position))
+                {
+                    plot.SowPlant(_selectedPlantData);
+                }
+            }
+            else
+            {
+                plot.SowPlant(_selectedPlantData);
+            }
         }
     }
 }

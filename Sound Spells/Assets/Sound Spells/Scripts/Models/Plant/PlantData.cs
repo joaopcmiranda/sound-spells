@@ -45,9 +45,14 @@ namespace Sound_Spells.Models.Plant
         public float overwaterTolerance = 1f; // How much being overwatered affects health
         public float lowSunlightTolerance = .5f; // How much low sunlight affects health
         public float highSunlightTolerance = .8f; // How much too much sunlight affects health
-        
-        // Sprites 
-        
+
+        // Economy
+
+        public float plantingCost = 25f; // Cost to plant this crop
+        public float sellValue = 5f; // Money earned when selling produce
+
+        // Sprites
+
         public PlantStateSprite[] sprites; // Array of sprites for different states and ages
     }
 

@@ -1,6 +1,7 @@
 using System.Linq;
 using Sound_Spells.Models.Plant;
 using Sound_Spells.Systems.Weather;
+using SoundSpells.Systems.Currency;
 using UnityEngine;
 
 namespace Sound_Spells.Systems.Plant
@@ -223,12 +224,14 @@ namespace Sound_Spells.Systems.Plant
                 return false;
             }
 
-            // Reset bloom progress to return to healthy mature state
             _bloomProgress = 0;
             _currentState = PlantState.Healthy;
             UpdateVisuals();
 
-            // TODO: Add currency/inventory system integration here
+            if (CurrencyManager.Instance != null && _plantData != null)
+            {
+                CurrencyManager.Instance.EarnMoney(_plantData.sellValue, transform.position);
+            }
 
             return true;
         }
