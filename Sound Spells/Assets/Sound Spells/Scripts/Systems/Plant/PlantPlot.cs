@@ -2,11 +2,15 @@ using Sound_Spells.Models.Plant;
 using UnityEngine;
 namespace Sound_Spells.Systems.Plant
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public class PlantPlot : MonoBehaviour
     {
         public GameObject plantPrefab;
-        
+
         private PlantBase _plantedPlant;
+
+        public bool HasPlant => _plantedPlant != null;
+        public PlantBase PlantedPlant => _plantedPlant;
 
         public void SowPlant(PlantData plant)
         {
@@ -34,6 +38,16 @@ namespace Sound_Spells.Systems.Plant
             {
                 Debug.LogWarning("No plant to remove in this plot.");
             }
+        }
+
+        public bool SellFruits()
+        {
+            if (_plantedPlant == null)
+            {
+                return false;
+            }
+
+            return _plantedPlant.SellFruits();
         }
         
         // Debug 
