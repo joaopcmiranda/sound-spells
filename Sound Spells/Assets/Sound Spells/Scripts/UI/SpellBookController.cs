@@ -114,7 +114,7 @@ namespace Sound_Spells.UI
 
         private void ShowPhonicPopup(WeatherType newWeather)
         {
-            wandController.CastSpell();
+            wandController.CastSpell(newWeather);
             _pendingWeatherType = newWeather;
             _phonicWord = _phonicRandomiser.GenerateRandomWord(_phonicWord);
 
@@ -128,7 +128,7 @@ namespace Sound_Spells.UI
 
         private void OnPhonicRecognised()
         {
-            wandController.CastSpell();
+            wandController.CastSpell(_pendingWeatherType);
             _phonicPopup.style.display = DisplayStyle.None;
             _phonicsRecogniser.StopListening();
             weatherSystem.SetWeather(_pendingWeatherType);

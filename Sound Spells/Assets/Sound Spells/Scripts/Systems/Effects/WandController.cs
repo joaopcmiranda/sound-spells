@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Sound_Spells.Systems.Weather;
 
 public class WandController : MonoBehaviour
 {
@@ -15,21 +16,23 @@ public class WandController : MonoBehaviour
     private Quaternion initialRotation;
     private bool isCasting = false;
 
+    [SerializeField] private MagicEffect _magicEffewand;
+
     void Start()
     {
         initialPosition = transform.position;
         initialRotation = transform.rotation;
     }
 
-    public void CastSpell()
+    public void CastSpell(WeatherType weatherType)
     {
         if (!isCasting)
         {
-            StartCoroutine(AnimateWand());
+            StartCoroutine(AnimateWand(weatherType));
         }
     }
 
-    private IEnumerator AnimateWand()
+    private IEnumerator AnimateWand(WeatherType weatherType)
     {
         isCasting = true;
         transform.position = initialPosition;
@@ -58,10 +61,12 @@ public class WandController : MonoBehaviour
             yield return null;
         }
         transform.position = targetPos;
+        MagicEffect.CastMagicEffect(weatherType);
 
         timer = 0f;
         while (timer < holdTime)
         {
+            
             // Figure 8 motion
             float figure8OffsetX = Mathf.Sin(timer * figure8Frequency) * figure8Width;
             float figure8OffsetY = Mathf.Sin(timer * figure8Frequency * 2.0f) * figure8Height;
