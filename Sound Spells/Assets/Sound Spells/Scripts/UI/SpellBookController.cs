@@ -11,6 +11,7 @@ namespace Sound_Spells.UI
     public class SpellBookController : MonoBehaviour
     {
         [SerializeField] private WeatherSystem weatherSystem;
+        [SerializeField] private WandController wandController;
 
         private UIDocument _hudUIDocument;
         private PhonicsRecogniser _phonicsRecogniser;
@@ -46,7 +47,7 @@ namespace Sound_Spells.UI
             _rainButton = root.Q<Button>("Rain");
             _cloudButton = root.Q<Button>("Cloud");
             _stormButton = root.Q<Button>("Storm");
-            _spellBookContainer = root.Q<VisualElement>("Container");
+            _spellBookContainer = root.Q<VisualElement>("Spells");
             _phonicPopup = root.Q<VisualElement>("PhonicPopup");
             _phonicText = root.Q<Label>("Phonic");
 
@@ -113,6 +114,7 @@ namespace Sound_Spells.UI
 
         private void ShowPhonicPopup(WeatherType newWeather)
         {
+            wandController.CastSpell();
             _pendingWeatherType = newWeather;
             _phonicWord = _phonicRandomiser.GenerateRandomWord(_phonicWord);
 
@@ -126,6 +128,7 @@ namespace Sound_Spells.UI
 
         private void OnPhonicRecognised()
         {
+            wandController.CastSpell();
             _phonicPopup.style.display = DisplayStyle.None;
             _phonicsRecogniser.StopListening();
             weatherSystem.SetWeather(_pendingWeatherType);
