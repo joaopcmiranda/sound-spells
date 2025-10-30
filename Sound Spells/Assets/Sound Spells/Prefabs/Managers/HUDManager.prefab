@@ -13,6 +13,13 @@ GameObject:
   - component: {fileID: 4581404705359091778}
   - component: {fileID: 38702034639461857}
   - component: {fileID: 4046579532353004366}
+  - component: {fileID: 5223245523804377095}
+  - component: {fileID: 8097503287617307104}
+  - component: {fileID: 3781098232983943998}
+  - component: {fileID: 2508076706396471988}
+  - component: {fileID: 1506591688356783096}
+  - component: {fileID: 2468739929510657914}
+  - component: {fileID: 7784838462029755463}
   m_Layer: 0
   m_Name: HUDManager
   m_TagString: Untagged
@@ -71,9 +78,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.HudManager
   hudUIDocument: {fileID: 6023792998248816797}
-  weatherSystem: {fileID: 0}
-  phonicsRecogniser: {fileID: 38702034639461857}
-  phonicRandomiser: {fileID: 4046579532353004366}
+  whitePlantIcon: {fileID: 2800000, guid: a70e0ae8c71aed9499c4eb8249b852f3, type: 3}
+  grapesIcon: {fileID: -1268064389544249124, guid: 5a3f05b71ffec52468b2c4f78ac011f9, type: 3}
+  pineappleIcon: {fileID: 3836210254766709903, guid: 5a3f05b71ffec52468b2c4f78ac011f9, type: 3}
+  cucumberIcon: {fileID: 2899441650435199170, guid: 5a3f05b71ffec52468b2c4f78ac011f9, type: 3}
 --- !u!114 &38702034639461857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,3 +157,104 @@ MonoBehaviour:
   - kick
   - din
   - dig
+--- !u!114 &5223245523804377095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562673726837311503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef590d1ebb31e940bdd948c5a18e5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.SpellBookController
+  weatherSystem: {fileID: 0}
+--- !u!114 &8097503287617307104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562673726837311503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec653bbf7dab244ba5f28ed1812c994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.PlantTool
+  grapesPlantData: {fileID: 11400000, guid: 291f6b99d14edc842b41359bbe0acfd6, type: 2}
+  cucumberPlantData: {fileID: 11400000, guid: da651b55d97a77c4c98b1340c7e9f686, type: 2}
+  pineapplePlantData: {fileID: 11400000, guid: ad95d0fecc2dc9346a0c298c4d0894b2, type: 2}
+--- !u!114 &3781098232983943998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562673726837311503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819f59a178ca11b4aa430cc61848d14e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.ShovelTool
+--- !u!114 &2508076706396471988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562673726837311503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413096ef9a16cf04ca9cd187c03b5cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.SellTool
+--- !u!114 &1506591688356783096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562673726837311503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3fbc8b7e584b94caaec995b64b2ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.GardenToolManager
+  shovelCursor: {fileID: 2800000, guid: c6d6f83deffc08940a51df826e088415, type: 3}
+  plantCursor: {fileID: 2800000, guid: a70e0ae8c71aed9499c4eb8249b852f3, type: 3}
+  sellCursor: {fileID: 2800000, guid: 3e9a058a1c3736c438d9758e79e6520e, type: 3}
+  shovelHotspot: {x: 5, y: 25}
+  plantHotspot: {x: 16, y: 16}
+  sellHotspot: {x: 16, y: 16}
+--- !u!114 &2468739929510657914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562673726837311503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6c9904da427ba489b86b57ebd82bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.PlantSelectionPopup
+--- !u!114 &7784838462029755463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562673726837311503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6a2c16c74ed0f48874ba67fe02996c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WandController
+  wandIconGameObject: {fileID: 0}
+  animationDuration: 3
+  waveAmplitude: 0.2
+  waveFrequency: 4
+  circleRadius: 0.1
+  circleFrequency: 3
+  rotationSpeed: 180

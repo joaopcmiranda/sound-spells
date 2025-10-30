@@ -11,6 +11,7 @@ namespace Sound_Spells.UI
     public class SpellBookController : MonoBehaviour
     {
         [SerializeField] private WeatherSystem weatherSystem;
+        [SerializeField] private WandController wandController;
 
         private UIDocument _hudUIDocument;
         private PhonicsRecogniser _phonicsRecogniser;
@@ -46,7 +47,7 @@ namespace Sound_Spells.UI
             _rainButton = root.Q<Button>("Rain");
             _cloudButton = root.Q<Button>("Cloud");
             _stormButton = root.Q<Button>("Storm");
-            _spellBookContainer = root.Q<VisualElement>("Container");
+            _spellBookContainer = root.Q<VisualElement>("Spells");
             _phonicPopup = root.Q<VisualElement>("PhonicPopup");
             _phonicText = root.Q<Label>("Phonic");
 
@@ -66,6 +67,12 @@ namespace Sound_Spells.UI
             {
                 _phonicsRecogniser.OnWordRecognised += OnPhonicRecognised;
             }
+            
+            if (wandController != null)
+            {
+                wandController.OnAnimationStart += DisableSpellButtons;
+                wandController.OnAnimationEnd += EnableSpellButtons;
+            }
 
             _phonicPopup.style.display = DisplayStyle.None;
 
@@ -79,6 +86,28 @@ namespace Sound_Spells.UI
             {
                 _phonicsRecogniser.OnWordRecognised -= OnPhonicRecognised;
             }
+            
+            if (wandController != null)
+            {
+                wandController.OnAnimationStart -= DisableSpellButtons;
+                wandController.OnAnimationEnd -= EnableSpellButtons;
+            }
+        }
+        
+        private void DisableSpellButtons()
+        {
+            _sunButton.SetEnabled(false);
+            _rainButton.SetEnabled(false);
+            _cloudButton.SetEnabled(false);
+            _stormButton.SetEnabled(false);
+        }
+
+        private void EnableSpellButtons()
+        {
+            _sunButton.SetEnabled(true);
+            _rainButton.SetEnabled(true);
+            _cloudButton.SetEnabled(true);
+            _stormButton.SetEnabled(true);
         }
 
         public void ToggleOpen()
@@ -109,14 +138,21 @@ namespace Sound_Spells.UI
             {
                 _spellBookContainer.style.display = DisplayStyle.None;
             }
+            EnableSpellButtons();
         }
 
         private void ShowPhonicPopup(WeatherType newWeather)
         {
+            DisableSpellButtons();
+            
             _pendingWeatherType = newWeather;
             _phonicWord = _phonicRandomiser.GenerateRandomWord(_phonicWord);
 
-            if (string.IsNullOrEmpty(_phonicWord)) return;
+            if (string.IsNullOrEmpty(_phonicWord))
+            {
+                EnableSpellButtons();
+                return;
+            }
 
             _phonicText.text = _phonicWord;
             _phonicPopup.style.display = DisplayStyle.Flex;
@@ -126,6 +162,7 @@ namespace Sound_Spells.UI
 
         private void OnPhonicRecognised()
         {
+            wandController.CastSpell(_pendingWeatherType);
             _phonicPopup.style.display = DisplayStyle.None;
             _phonicsRecogniser.StopListening();
             weatherSystem.SetWeather(_pendingWeatherType);
