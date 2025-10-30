@@ -19,7 +19,8 @@ GameObject:
   - component: {fileID: 2508076706396471988}
   - component: {fileID: 1506591688356783096}
   - component: {fileID: 2468739929510657914}
-  - component: {fileID: 7784838462029755463}
+  - component: {fileID: 4036164514830186360}
+  - component: {fileID: 2546293764795437245}
   m_Layer: 0
   m_Name: HUDManager
   m_TagString: Untagged
@@ -170,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.SpellBookController
   weatherSystem: {fileID: 0}
+  wandController: {fileID: 0}
 --- !u!114 &8097503287617307104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +241,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6c9904da427ba489b86b57ebd82bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.UI.PlantSelectionPopup
---- !u!114 &7784838462029755463
+--- !u!82 &4036164514830186360
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562673726837311503}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2546293764795437245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,13 +347,107 @@ MonoBehaviour:
   m_GameObject: {fileID: 562673726837311503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d6a2c16c74ed0f48874ba67fe02996c, type: 3}
+  m_Script: {fileID: 11500000, guid: 31ec70e3b579e0d418e61c891a4323a1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WandController
-  wandIconGameObject: {fileID: 0}
-  animationDuration: 3
-  waveAmplitude: 0.2
-  waveFrequency: 4
-  circleRadius: 0.1
-  circleFrequency: 3
-  rotationSpeed: 180
+  m_EditorClassIdentifier: Assembly-CSharp::Sound_Spells.Systems.Speech.PhonicAudioManager
+  phonicClips:
+  - word: a
+    clip: {fileID: 8300000, guid: 808c7b52402de5640ad8dc48ca08af49, type: 3}
+  - word: an
+    clip: {fileID: 8300000, guid: 9ce520096eec9c743b20427d880b6e24, type: 3}
+  - word: at
+    clip: {fileID: 8300000, guid: 925231aab965d6947983104bc5674aff, type: 3}
+  - word: it
+    clip: {fileID: 8300000, guid: cc2c6b844d6f0bc46b5f075c7cd5bc54, type: 3}
+  - word: in
+    clip: {fileID: 8300000, guid: b3901bbcdd0c9fa46b9775c72a1cca10, type: 3}
+  - word: is
+    clip: {fileID: 8300000, guid: d5967fd780eb47b4d85f0db0f86435ae, type: 3}
+  - word: as
+    clip: {fileID: 8300000, guid: 9f1bdca189de853479569050df8dd788, type: 3}
+  - word: sat
+    clip: {fileID: 8300000, guid: b598350a9220cf345bb2ad37ff645276, type: 3}
+  - word: sit
+    clip: {fileID: 8300000, guid: 118535cd43c5f374a85bdc29ee8e2f04, type: 3}
+  - word: sap
+    clip: {fileID: 8300000, guid: b0c3f14cab394494abc7f37aefb64af2, type: 3}
+  - word: sip
+    clip: {fileID: 8300000, guid: f344edca27fe29e4d94f859f19bd1e74, type: 3}
+  - word: sin
+    clip: {fileID: 8300000, guid: a8dfb291b6a37ce4d8099288c339da61, type: 3}
+  - word: tin
+    clip: {fileID: 8300000, guid: 7d865f76a1aed3e47b69279e4fefe648, type: 3}
+  - word: tip
+    clip: {fileID: 8300000, guid: 287483068a86de54cb0b73104e0ef0a6, type: 3}
+  - word: tan
+    clip: {fileID: 8300000, guid: f5dd93ddaace0424ebf6455be9fe550c, type: 3}
+  - word: tap
+    clip: {fileID: 8300000, guid: 38eeb17bfc55cae4dbb5cfa13f878473, type: 3}
+  - word: pat
+    clip: {fileID: 8300000, guid: b27736a584c09a44ab9bf34d29498cf0, type: 3}
+  - word: pan
+    clip: {fileID: 8300000, guid: 2c2dc08eea324c94abab4f42ba869f36, type: 3}
+  - word: pin
+    clip: {fileID: 8300000, guid: 51ce32cf139a93c478dc3eb5bf677e26, type: 3}
+  - word: pip
+    clip: {fileID: 8300000, guid: eccccff973db4944c9251f9c81c33902, type: 3}
+  - word: nap
+    clip: {fileID: 8300000, guid: 61d75eb00dc39864fb20d41d553ea500, type: 3}
+  - word: nip
+    clip: {fileID: 8300000, guid: 52e4e0943db16794daa532fe75f22198, type: 3}
+  - word: nan
+    clip: {fileID: 8300000, guid: 7cb3cc27998a28148ac7be8ce4db2e90, type: 3}
+  - word: ant
+    clip: {fileID: 8300000, guid: 923595d5d72d6f04e9f66bc38227caa2, type: 3}
+  - word: ants
+    clip: {fileID: 8300000, guid: 024f1fae07d31f840b49038ab730737c, type: 3}
+  - word: and
+    clip: {fileID: 8300000, guid: af375eb4823b19c44af4bacafce795ad, type: 3}
+  - word: mat
+    clip: {fileID: 8300000, guid: 4db8ac5319f039c4fb9b1faa445b8dff, type: 3}
+  - word: map
+    clip: {fileID: 8300000, guid: 46a2918dc82899842a45cc067d3ecb18, type: 3}
+  - word: man
+    clip: {fileID: 8300000, guid: d66ab9dbd2dea0243a740e7e0f4ed6d1, type: 3}
+  - word: mad
+    clip: {fileID: 8300000, guid: bbe27c93275ec5a4786908a814acec50, type: 3}
+  - word: mud
+    clip: {fileID: 8300000, guid: 5fe0198db308210409d30b469617dde3, type: 3}
+  - word: mit
+    clip: {fileID: 8300000, guid: b6f01453d21b0f7488cc666d3053e271, type: 3}
+  - word: dim
+    clip: {fileID: 8300000, guid: ff4b416a0c54d8448b0247ff034f74a2, type: 3}
+  - word: dip
+    clip: {fileID: 8300000, guid: 8b7b20ad4dd14294fb0adafa60397120, type: 3}
+  - word: dog
+    clip: {fileID: 8300000, guid: ffbb73c474f4120409bd57a2ff6d4e0b, type: 3}
+  - word: dot
+    clip: {fileID: 8300000, guid: b6429e26b4b73c84989f413a23171240, type: 3}
+  - word: got
+    clip: {fileID: 8300000, guid: fc64373508b69bc4182ca02819c06478, type: 3}
+  - word: god
+    clip: {fileID: 8300000, guid: 1800eb65cfc7c214b8a2fec6826ed4f1, type: 3}
+  - word: gap
+    clip: {fileID: 8300000, guid: 034c88c68e951e34e9831ef33f29261d, type: 3}
+  - word: gas
+    clip: {fileID: 8300000, guid: 443a46d94494e784987c88a19b00fe94, type: 3}
+  - word: cot
+    clip: {fileID: 8300000, guid: f004e65663b7e6549b829b7452c311f6, type: 3}
+  - word: cod
+    clip: {fileID: 8300000, guid: 00f25fc5baf6a7042954c6a138ef3136, type: 3}
+  - word: can
+    clip: {fileID: 8300000, guid: 94faafcc98a5d3d4988d4f56c719774d, type: 3}
+  - word: cap
+    clip: {fileID: 8300000, guid: c93411ba1859537468232c13476a575d, type: 3}
+  - word: cat
+    clip: {fileID: 8300000, guid: 68894b2b6360ca04a88723c8b08f0839, type: 3}
+  - word: kid
+    clip: {fileID: 8300000, guid: 91bfbb0ddd4aece41948fef9eb4813f4, type: 3}
+  - word: kit
+    clip: {fileID: 8300000, guid: 92e52d1a85eb46342ba5cc825db90f17, type: 3}
+  - word: kick
+    clip: {fileID: 8300000, guid: dae2ef720380d144a9d989ed2e3495f1, type: 3}
+  - word: din
+    clip: {fileID: 8300000, guid: 3f4d68494cc3c6b4ca4b8175a1a045a4, type: 3}
+  - word: dig
+    clip: {fileID: 8300000, guid: 7e040eed4cf1a544c8d1bcb04269785e, type: 3}

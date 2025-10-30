@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 using System;
+using System.Collections;
 
 namespace Sound_Spells.Systems.Phonics_Generation
 {
     public class PhonicsRecogniser : MonoBehaviour
     {
         public event Action OnWordRecognised;
+        public event Action<string> OnListeningTimeout;
         
         private KeywordRecognizer _keywordRecognizer;
+        private Coroutine _listeningTimerCoroutine;
+        private const float HelpTimeout = 10.0f;
 
         public void StartListeningFor(string word)
         {
@@ -20,6 +24,8 @@ namespace Sound_Spells.Systems.Phonics_Generation
             _keywordRecognizer = new KeywordRecognizer(keywords, ConfidenceLevel.Low);
             _keywordRecognizer.OnPhraseRecognized += PhraseRecognised;
             _keywordRecognizer.Start();
+            
+            _listeningTimerCoroutine = StartCoroutine(ListenTimerCoroutine(word));
         }
 
         public void StopListening()
@@ -28,11 +34,31 @@ namespace Sound_Spells.Systems.Phonics_Generation
             {
                 _keywordRecognizer.Stop();
             }
+            
+            if (_listeningTimerCoroutine != null)
+            {
+                StopCoroutine(_listeningTimerCoroutine);
+                _listeningTimerCoroutine = null;
+            }
         }
         
         private void PhraseRecognised(PhraseRecognizedEventArgs args)
         {
             OnWordRecognised?.Invoke();
+            
+            if (_listeningTimerCoroutine != null)
+            {
+                StopCoroutine(_listeningTimerCoroutine);
+                _listeningTimerCoroutine = null;
+            }
+            OnWordRecognised?.Invoke();
+        }
+        
+        private IEnumerator ListenTimerCoroutine(string word)
+        {
+            yield return new WaitForSeconds(HelpTimeout);
+            OnListeningTimeout?.Invoke(word);
+            _listeningTimerCoroutine = null;
         }
 
         private void OnDisable()

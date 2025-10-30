@@ -29,12 +29,14 @@ namespace Sound_Spells.UI
         private string _phonicWord;
         private WeatherType _pendingWeatherType;
         private bool _isOpen;
+        private HudManager _hudManager;
 
         private void Awake()
         {
             _hudUIDocument = GetComponent<UIDocument>();
             _phonicsRecogniser = GetComponent<PhonicsRecogniser>();
             _phonicRandomiser = GetComponent<PhonicRandomiser>();
+            _hudManager = GetComponent<HudManager>();
         }
 
         private void OnEnable()
@@ -66,6 +68,7 @@ namespace Sound_Spells.UI
             if (_phonicsRecogniser != null)
             {
                 _phonicsRecogniser.OnWordRecognised += OnPhonicRecognised;
+                _phonicsRecogniser.OnListeningTimeout += OnPhonicTimeout;
             }
             
             if (wandController != null)
@@ -85,6 +88,7 @@ namespace Sound_Spells.UI
             if (_phonicsRecogniser != null)
             {
                 _phonicsRecogniser.OnWordRecognised -= OnPhonicRecognised;
+                _phonicsRecogniser.OnListeningTimeout -= OnPhonicTimeout;
             }
             
             if (wandController != null)
@@ -162,10 +166,20 @@ namespace Sound_Spells.UI
 
         private void OnPhonicRecognised()
         {
+            if (_hudManager != null) _hudManager.HideHelpButton();
+            
             wandController.CastSpell(_pendingWeatherType);
             _phonicPopup.style.display = DisplayStyle.None;
             _phonicsRecogniser.StopListening();
             weatherSystem.SetWeather(_pendingWeatherType);
+        }
+        
+        private void OnPhonicTimeout(string word)
+        {
+            if (_hudManager != null)
+            {
+                _hudManager.ShowHelpButton(word);
+            }
         }
     }
 }
