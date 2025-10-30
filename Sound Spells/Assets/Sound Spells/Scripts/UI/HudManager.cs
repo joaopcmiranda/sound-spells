@@ -2,6 +2,7 @@ using Sound_Spells.Models.Plant;
 using SoundSpells.Systems.Currency;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Sound_Spells.Systems.Speech;
 
 namespace Sound_Spells.UI
 {
@@ -28,7 +29,9 @@ namespace Sound_Spells.UI
         private VisualElement _sellButton;
         private VisualElement _magicWandButton;
         private Label _moneyValueLabel;
+        private Button _helpButton;
         private bool _currencySubscribed = false;
+        private string _phonicHelpWord;
 
         private void Awake()
         {
@@ -66,6 +69,8 @@ namespace Sound_Spells.UI
                 return;
             }
 
+            _helpButton = root.Q<Button>("HelpButton");
+
             _plantButton = buttonList[0];
             _shovelButton = buttonList[1];
             _sellButton = buttonList[2];
@@ -76,6 +81,7 @@ namespace Sound_Spells.UI
             _shovelButton.RegisterCallback<ClickEvent>(OnShovelButtonClicked);
             _sellButton.RegisterCallback<ClickEvent>(OnSellButtonClicked);
             _magicWandButton.RegisterCallback<ClickEvent>(OnMagicWandButtonClicked);
+            _helpButton.RegisterCallback<ClickEvent>(OnHelpButtonClicked);
 
             // Subscribe to plant selection events
             if (_plantSelectionPopup != null)
@@ -85,6 +91,8 @@ namespace Sound_Spells.UI
 
             _moneyValueLabel = root.Q<Label>("MoneyValue");
             TrySubscribeToCurrency();
+            
+            HideHelpButton();
         }
 
         private void Start()
@@ -117,6 +125,9 @@ namespace Sound_Spells.UI
                 _sellButton.UnregisterCallback<ClickEvent>(OnSellButtonClicked);
             if (_magicWandButton != null)
                 _magicWandButton.UnregisterCallback<ClickEvent>(OnMagicWandButtonClicked);
+            if (_helpButton != null)
+                _helpButton.UnregisterCallback<ClickEvent>(OnHelpButtonClicked);
+            
 
             // Unsubscribe from plant selection events
             if (_plantSelectionPopup != null)
@@ -128,6 +139,14 @@ namespace Sound_Spells.UI
             {
                 CurrencyManager.Instance.OnBalanceChanged -= UpdateMoneyDisplay;
                 _currencySubscribed = false;
+            }
+        }
+
+        private void OnHelpButtonClicked(ClickEvent evt)
+        {
+            if (PhonicAudioManager.Instance != null && !string.IsNullOrEmpty(_phonicHelpWord))
+            {
+                PhonicAudioManager.Instance.PlayPhonic(_phonicHelpWord);
             }
         }
 
@@ -249,6 +268,24 @@ namespace Sound_Spells.UI
         private void ResetBackgroundSize(VisualElement element)
         {
             element.style.backgroundSize = StyleKeyword.Null;
+        }
+        
+        public void ShowHelpButton(string word)
+        {
+            _phonicHelpWord = word;
+            if (_helpButton != null)
+            {
+                _helpButton.style.display = DisplayStyle.Flex;
+            }
+        }
+
+        public void HideHelpButton()
+        {
+            _phonicHelpWord = string.Empty;
+            if (_helpButton != null)
+            {
+                _helpButton.style.display = DisplayStyle.None;
+            }
         }
     }
 }
