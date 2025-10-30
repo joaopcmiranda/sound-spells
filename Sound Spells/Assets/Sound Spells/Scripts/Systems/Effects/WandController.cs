@@ -1,9 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using System;
 using Sound_Spells.Systems.Weather;
 
 public class WandController : MonoBehaviour
 {
+    public event Action OnAnimationStart;
+    public event Action OnAnimationEnd;
+    
     public Transform targetWaypoint;
     public float animationDuration = 3.0f;
     public float figure8Width = 0.5f;
@@ -35,6 +39,8 @@ public class WandController : MonoBehaviour
     private IEnumerator AnimateWand(WeatherType weatherType)
     {
         isCasting = true;
+        OnAnimationStart?.Invoke();
+        
         transform.position = initialPosition;
         transform.rotation = initialRotation;
         
@@ -92,6 +98,8 @@ public class WandController : MonoBehaviour
 
         transform.position = initialPosition;
         transform.rotation = initialRotation;
+        
+        OnAnimationEnd?.Invoke();
         isCasting = false;
     }
 }

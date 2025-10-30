@@ -80,6 +80,28 @@ namespace Sound_Spells.UI
             {
                 _phonicsRecogniser.OnWordRecognised -= OnPhonicRecognised;
             }
+            
+            if (wandController != null)
+            {
+                wandController.OnAnimationStart -= DisableSpellButtons;
+                wandController.OnAnimationEnd -= EnableSpellButtons;
+            }
+        }
+        
+        private void DisableSpellButtons()
+        {
+            _sunButton.SetEnabled(false);
+            _rainButton.SetEnabled(false);
+            _cloudButton.SetEnabled(false);
+            _stormButton.SetEnabled(false);
+        }
+
+        private void EnableSpellButtons()
+        {
+            _sunButton.SetEnabled(true);
+            _rainButton.SetEnabled(true);
+            _cloudButton.SetEnabled(true);
+            _stormButton.SetEnabled(true);
         }
 
         public void ToggleOpen()
@@ -114,7 +136,6 @@ namespace Sound_Spells.UI
 
         private void ShowPhonicPopup(WeatherType newWeather)
         {
-            wandController.CastSpell(newWeather);
             _pendingWeatherType = newWeather;
             _phonicWord = _phonicRandomiser.GenerateRandomWord(_phonicWord);
 
