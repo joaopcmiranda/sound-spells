@@ -67,6 +67,12 @@ namespace Sound_Spells.UI
             {
                 _phonicsRecogniser.OnWordRecognised += OnPhonicRecognised;
             }
+            
+            if (wandController != null)
+            {
+                wandController.OnAnimationStart += DisableSpellButtons;
+                wandController.OnAnimationEnd += EnableSpellButtons;
+            }
 
             _phonicPopup.style.display = DisplayStyle.None;
 
@@ -132,14 +138,21 @@ namespace Sound_Spells.UI
             {
                 _spellBookContainer.style.display = DisplayStyle.None;
             }
+            EnableSpellButtons();
         }
 
         private void ShowPhonicPopup(WeatherType newWeather)
         {
+            DisableSpellButtons();
+            
             _pendingWeatherType = newWeather;
             _phonicWord = _phonicRandomiser.GenerateRandomWord(_phonicWord);
 
-            if (string.IsNullOrEmpty(_phonicWord)) return;
+            if (string.IsNullOrEmpty(_phonicWord))
+            {
+                EnableSpellButtons();
+                return;
+            }
 
             _phonicText.text = _phonicWord;
             _phonicPopup.style.display = DisplayStyle.Flex;
